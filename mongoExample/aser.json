@@ -1,0 +1,7 @@
+[
+  {"user":"adam", "firstName":"Adam", "lastName":"First", "street":"Edem 23 k 12", "zip":"442335",
+   "city":"Vavilon","country":"Bubumba", "eMail":"adam@gmail.com","phone":"+19213332211" },
+
+  {"user":"pupa", "firstName":"Pupa", "lastName":"Pendosis", "street":"Steeve 7 d 71","zip":"01235",
+   "city":"Mikkeli","country":"Finland", "eMail":"pendos@yahoo.com", "phone":"+358501112244" }
+]

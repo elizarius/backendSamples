@@ -1,0 +1,11 @@
+[
+    {"maker":"Honda", "model":"CR-V", "type":"car","price":20000, "town":"Vantaa", "year":"2014",
+      "milleage": 20000, "engine":"1.6", "regNum": "NNN-456" },
+
+    { "maker":"Audi", "model":"Q3", "type":"car", "price": 20000, "town":"Espoo", "year":"2016",
+       "milleage":1000, "engine":"1.8", "gearbox":"manual", "power":160, "driveType":"Front weel", "regNum":"ZZZ-345"},
+
+    { "maker":"BMW", "model":"X1", "type":"car", "price": 30000, "town":"Helsinki", "year":"2013",
+       "milleage":1000, "engine":"2.0", "gearbox":"manual", "power":160, "driveType":"Front weel", "regNum":"XYZ-745"}
+
+]
