@@ -1,0 +1,70 @@
+alexel@elxa3x3m4m2:~/esmSrc/usm$ (2_roleInfo) git grep "um/rules" | grep robot 
+tests/robot/esm_tests/user_manager/010__user_management_api.robot:${um_rules_api}        /um/rules
+
+
+
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    GET     /um/rules/                            ESM_SYSADMIN_SESSION    200
+
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    POST    /um/rules/                            ESM_SYSADMIN_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    GET     /um/rules/1/                          ESM_SYSADMIN_SESSION    404
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    PUT     /um/rules/1/                          ESM_SYSADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    PATCH   /um/rules/1/                          ESM_SYSADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/040__sysadmin_role_access.robot:    DELETE  /um/rules/1/                          ESM_SYSADMIN_SESSION    404
+
+
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    GET     /um/rules/                            ESM_SUPERUSER_SESSION    200
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    POST    /um/rules/                            ESM_SUPERUSER_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    GET     /um/rules/1/                          ESM_SUPERUSER_SESSION    404
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    PUT     /um/rules/1/                          ESM_SUPERUSER_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    PATCH   /um/rules/1/                          ESM_SUPERUSER_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/041__superuser_role_access.robot:    DELETE  /um/rules/1/                          ESM_SUPERUSER_SESSION    404
+
+
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    GET     /um/rules/                            ESM_ASSETADMIN_SESSION    200
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    POST    /um/rules/                            ESM_ASSETADMIN_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    GET     /um/rules/1/                          ESM_ASSETADMIN_SESSION    404
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    PUT     /um/rules/1/                          ESM_ASSETADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    PATCH   /um/rules/1/                          ESM_ASSETADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/042__assetadmin_role_access.robot:    DELETE  /um/rules/1/                          ESM_ASSETADMIN_SESSION    404
+
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    GET     /um/rules/                            ESM_POLICYADMIN_SESSION    200
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    POST    /um/rules/                            ESM_POLICYADMIN_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    GET     /um/rules/1/                          ESM_POLICYADMIN_SESSION    404
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    PUT     /um/rules/1/                          ESM_POLICYADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    PATCH   /um/rules/1/                          ESM_POLICYADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/043__policyadmin_role_access.robot:    DELETE  /um/rules/1/                          ESM_POLICYADMIN_SESSION    404
+
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    GET     /um/rules/                            ESM_SECURITYOPERATOR_SESSION    200
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    POST    /um/rules/                            ESM_SECURITYOPERATOR_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    GET     /um/rules/1/                          ESM_SECURITYOPERATOR_SESSION    404
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    PUT     /um/rules/1/                          ESM_SECURITYOPERATOR_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    PATCH   /um/rules/1/                          ESM_SECURITYOPERATOR_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/044__securityoperator_role_access.robot:    DELETE  /um/rules/1/                          ESM_SECURITYOPERATOR_SESSION    404
+
+
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    GET     /um/rules/                            ESM_SECURITYADMIN_SESSION    200
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    POST    /um/rules/                            ESM_SECURITYADMIN_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    GET     /um/rules/1/                          ESM_SECURITYADMIN_SESSION    404
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    PUT     /um/rules/1/                          ESM_SECURITYADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    PATCH   /um/rules/1/                          ESM_SECURITYADMIN_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/045__securityadmin_role_access.robot:    DELETE  /um/rules/1/                          ESM_SECURITYADMIN_SESSION    404
+
+
+
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    GET     /um/rules/                            ESM_ADVANCEDANALYST_SESSION    200
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    POST    /um/rules/                            ESM_ADVANCEDANALYST_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    GET     /um/rules/1/                          ESM_ADVANCEDANALYST_SESSION    404
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    PUT     /um/rules/1/                          ESM_ADVANCEDANALYST_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    PATCH   /um/rules/1/                          ESM_ADVANCEDANALYST_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/046__advancedanalyst_role_access.robot:    DELETE  /um/rules/1/                          ESM_ADVANCEDANALYST_SESSION    404
+
+
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    GET     /um/rules/                            ESM_THREATANALYST_SESSION    200
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    POST    /um/rules/                            ESM_THREATANALYST_SESSION    403     ${dummy_data}
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    GET     /um/rules/1/                          ESM_THREATANALYST_SESSION    404
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    PUT     /um/rules/1/                          ESM_THREATANALYST_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    PATCH   /um/rules/1/                          ESM_THREATANALYST_SESSION    404     ${dummy_data}
+tests/robot/esm_tests/user_manager/047__threatanalyst_role_access.robot:    DELETE  /um/rules/1/                          ESM_THREATANALYST_SESSION    404
+ealexel@elxa3x3m4m2:~/esmSrc/usm$ (2_roleInfo) 
+
+

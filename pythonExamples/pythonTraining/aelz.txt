@@ -1,0 +1,37 @@
+from sys import argv
+
+script, first, second, third = argv
+
+'''
+Using commanf line input
+AELZ_201: to use input fro keyboard, raw_input() function to be used
+AELZ_202: see ex14 to write CLI session
+AELZ_203: ex32: examples for cycle and lists (like array in C language)
+AELZ_204: ex33: while loop
+AELZ_204: ex37: main keywords list  !!!!!!!
+'''
+print "The script is called:", argv[0]
+print "Your first variable is:", argv[1]
+print "Your second variable is:", argv[2]
+print "Your third variable is:", argv[3]
+from sys import argv
+
+script, user_name = argv
+prompt = '> '
+
+print "Hi %s, I'm the %s script." % (user_name, script)
+print "I'd like to ask you a few questions."
+print "Do you like me %s?" % user_name
+likes = raw_input(prompt)
+
+print "Where do you live %s?" % user_name
+lives = raw_input(prompt)
+
+print "What kind of computer do you have?"
+computer = raw_input(prompt)
+
+print """
+Alright, so you said %r about liking me.
+You live in %s.  Not sure where that is.
+And you have a %r computer.  Nice.
+""" % (likes, lives, computer)

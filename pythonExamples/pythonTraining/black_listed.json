@@ -1,0 +1,26 @@
+{
+  "asset_inventory_asset": [
+    "id",
+    "asset_owner",
+    "ip_address",
+    "name",
+    "description",
+    "port",
+    "criticality",
+    "created_at",
+    "origin",
+    "log_identifier",
+    "asset_type_id",
+    "parent_id"
+  ],
+  "asset_inventory_cloudcredentials": [
+    "id",
+    "name"
+  ],
+  "sync_ecm": [
+    "name",
+    "address",
+    "tenant",
+    "vdc"
+  ]
+}
