@@ -1,4 +1,5 @@
-# AELZ_102 input form command line exercise
+#   AELZ_102 input form command line exercise
+#   AELZ_103 only for pytho 2.x , input() to be used for python
 
 print "How old are you?",
 age = raw_input()
