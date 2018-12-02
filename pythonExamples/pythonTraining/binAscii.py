@@ -5,15 +5,18 @@ text = "hello, mrs teal"
 
 data = binascii.a2b_base64(text)
 print (text, "<=>", data)
+
 data = binascii.b2a_base64(data)
 print (text, "<=>", data)
 
-#text = binascii.a2b_base64(data)
-#print (text, "<=>", data)
+t1 = binascii.a2b_base64(data)
+print (t1, "<=>", data)
 
-#data = binascii.b2a_uu(text)
-#text = binascii.a2b_uu(data)
-#print text, "<=>", repr(data)
+data = binascii.b2a_uu(text)
+print text, "<=>", repr(data)
+
+t2 = binascii.a2b_uu(data)
+print t2, "<=>", repr(data)
 
 #data = binascii.b2a_hqx(text)
 #text = binascii.a2b_hqx(data)[0]
