@@ -1,0 +1,16 @@
+
+https://hub.docker.com/_/postgres/
+
+docker pull postgres
+
+docker run --name aelz-postgre -e POSTGRES_PASSWORD=aelzpassword -d postgres
+
+**  Start with port mapping ***
+docker run --name some-postgres -e POSTGRES_PASSWORD=aelzpassword -d -p 5432:5432 postgres
+
+docker exec -it some-postgres bash
+
+** Connect with psql clinet **
+psql -h localhost -p 5432 -U postgres -W
+
+
