@@ -20,17 +20,24 @@ class   Setter(object):
 
 try:
     zz = Setter.getKey_1()
-    pwd='12345'
+    pwd='00000'
     Setter.setKey_1(pwd)
+   # pwd='12345'
+   # Setter.setKey_1(pwd)
 
-except Exception as e:
+except ZeroDivisionError as e:
     print ("AELZ IN exception %s " % zz)
-    msg = "Getting of base_key failed: {}".format(str(e))
-    print("{0} : {1}".format(msg, traceback.format_exc()))
+    print ("E:  {} ".format(e))
+    print ("E.args  {} ".format(e.args))
+    print ("E.type  {} ".format(type(e)))
+#    msg = "Getting of base_key failed: {}".format(str(e))
+#    print("{0} : {1}".format(msg, traceback.format_exc()))
 
+else:
+    ### Reached  this branch if there are no any exceptions
+    print ("Reached ELSE stmt ")
 
-print("AELZ finalizing after exception")
-
-
-
+finally:
+    ### Reached ALWAYS this branch
+    print ("Reached FINAL stmt ")
 

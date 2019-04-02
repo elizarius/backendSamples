@@ -28,6 +28,31 @@ selected_tables_columns = {
 }
 
 
+# def write_db_contents_to_csv():
+#     dbs = db_helper.get_db_list()
+#     for db in dbs:
+#         tables_list = db_helper.get_tables_from_db(db)
+#         for table in tables_list:
+#             if table in selected_tables_columns:
+#                 columns = selected_tables_columns[table]
+#                 values = db_helper.get_table_contents(
+#                     db, table, specific_columns=columns
+#                 )
+#             else:
+#                 columns = db_helper.get_table_columns(db, table)
+#                 values = db_helper.get_table_contents(db, table)
+#             with open('/tmp/db-log.csv', 'a') as f:
+#                 csv_writer = csv.writer(f)
+#                 csv_writer.writerow(table.split())
+#                 csv_writer.writerow(columns)
+#                 for row in values:
+#                     csv_writer.writerow(row)
+#                 # Insert 3 blank lines after every table
+#                 csv_writer.writerow([])
+#                 csv_writer.writerow([])
+#                 csv_writer.writerow([])
+#             f.close()
+
 
 def read_config_file(path):
     print("Reading %s... {}.".format(path))
