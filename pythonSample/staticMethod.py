@@ -16,6 +16,9 @@ class   Setter(object):
         return Setter.key_1
 
 zz = Setter.getKey_1()
+
+kk = Setter()
+
 print ("ZZ:  %s" % zz)
 
 Setter.setKey_1('3333333')
@@ -24,3 +27,8 @@ print ("ZZ:  %s" % Setter.getKey_1())
 Setter().setKey_1('44444444')
 print ("ZZ:  %s" % Setter.getKey_1())
 
+
+
+print ('KK.key_1 {}'.format(kk.key_1))
+kk.key_1 = '1010101'
+print ('KK.key_1 {}'.format(kk.key_1))
