@@ -24,10 +24,9 @@ print ('deleted orange, banana')
 ## delete operation is not supposrted  for tuples
 #del fruits[0]
 #del fruits[5]
-print (fruits)
 
 print (' ')
-print ('----------   TUPLE -------------')
+print ('----------   TUPLE 2 -------------')
 tup = 12345, 54321, 'hello!'
 print (tup)
 
