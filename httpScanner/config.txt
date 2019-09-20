@@ -1,0 +1,5 @@
+http://speetest.net
+http://www.foobar.com/login
+http://test.com/test
+Content: Please login
+Timeout: 6
