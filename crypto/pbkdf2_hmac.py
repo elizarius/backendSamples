@@ -30,7 +30,7 @@ def validate_password_policy(password):
 def set_password(password):
 
     # random hexadecimal string
-    salt = (secrets.token_bytes(16))
+    salt = (secrets.token_hex(16))
     print ("Created salt:\n {}".format(salt))
 
     pwhash = password.encode() 
@@ -38,9 +38,8 @@ def set_password(password):
     print ("Encoded salt:\n {}".format(salt.encode()))
      
     dk = hashlib.pbkdf2_hmac('sha256', pwhash, salt.encode(), 100000)
-    dk = dk.hex()
     print ("Created hash:\n {}".format(dk))
-    return salt, dk
+    return salt, dk.hex()
 
 def compare_password(given_password, salt, pwhash):
 
