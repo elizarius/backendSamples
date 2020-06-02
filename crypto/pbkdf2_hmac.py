@@ -33,10 +33,10 @@ def set_password(password):
     salt = (secrets.token_hex(16))
     print ("Created salt:\n {}".format(salt))
 
-    pwhash = password.encode() 
+    pwhash = password.encode()
     print ("Encoded pass:\n {}".format(pwhash))
     print ("Encoded salt:\n {}".format(salt.encode()))
-     
+
     dk = hashlib.pbkdf2_hmac('sha256', pwhash, salt.encode(), 100000)
     print ("Created hash:\n {}".format(dk))
     return salt, dk.hex()

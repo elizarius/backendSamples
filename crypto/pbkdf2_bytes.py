@@ -1,6 +1,6 @@
 import sys
 import hashlib
-import secrets
+oimport secrets
 from hmac import compare_digest
 import binascii
 
@@ -36,8 +36,7 @@ def set_password(password):
     print ("Hex salt encoded:\n {}".format(salt.hex().encode()))
     binFromHex = binascii.a2b_hex(salt.hex())
     print ("Hex -> byte string\n {}".format(binFromHex))
-   
-    
+
 
 
 if __name__ == "__main__":
