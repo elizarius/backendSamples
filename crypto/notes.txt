@@ -1,0 +1,349 @@
+1.  Intro + one timecipher (OTP)
+****************
+
+ -eavesdropping podsmatrivanie
+ -tampering     podmena, falsifikacija
+ -prime         prostoe tshislo
+ -factor        mnozhitely
+ -unforgeable   nepoddelnyj
+ -permutation   perestanovka
+ -malleable     podatlivyyi
+- KEYSTROKE     nazhatie klavishi
+- authenticity  podlinnost' == repudaitaion
+
+
+Symmetric encryption
+
+E, D:   cipher
+k:      secret key (e.g. 128 bits)
+m:      message
+c:      ciphertext
+
+E(k,m)=c        // encryption
+D(k,c)=m        // decryption
+
+R( k, m) round function -> block ciphers
+
+
+one time key (e-mail),  multi use key(ssh)
+---------------------
+
+- trusted authority:    central actor of crypto & security.
+F.i. PKI ceriticates or self signed certificates
+
+- Privately outsourcing computation: Google makes search based on encrypted key
+and no idea about search content.
+Still is under development (theoretical concept)
+
+1.  Substitution cipher:    1x1 substitute letters
+2.  Caesar cipher:          Shift by/3  (f.i. a ->d... y->b)
+3.  Vigener cipher          (k+m)/mod  26
+4.  Rotor(Hebern) machine
+5.  Enigma -> 3-5 rotors
+6.  DES 2x56 , block size = 64, AES (128), Salsa20
+
+---------------------
+
+Probability distributions
+
+- Uniform distribution: P(x) = 1/|U|,   f.i: ->  [0,1,2,3] -> P(x) = 1/4
+- Uniform random  variable
+- Point distribution:   P(x0) = 1, others 0
+
+XOR:  Z =  Y(ran) XOR X(uniform); Z is uniform always.
+------------------------------------------------------
+PRG - pseudo random generator, RC4 -> prg for WEP(802.11b
+Bad idea to use OTP for disc encryption
+
+Attack 1: 2 time pad
+Attack 2: 2 no integrity
+
+Old generator (badly broken)
+----------------------------
+RC4     (bad) used in WEP /HTTPS(?)
+CSS     (hardware) based on LFSR(linear feedback shift register)
+eStream (2008) -> SALSA20 ->  seed x R(nonce)
+
+
+**************   Summary   ***************************
+• Never use stream cipher key more than once !!
+• Network traffic: negotiate new key for every session (e.g. TLS)
+• Disk encryption: typically do not use a stream cipher
+
+Page 16  OTP review , very short !!!!!!!
+
+
+2.  Block ciphers --> CONFIDENTIALITY
+*************************************
+
+PRF:    pseudo random function
+PRP	    pseudo random permutation (inversion)
+CBC:    cipher block chaining
+CTR     COUNTER mode, another mode in add to CBC
+
+R(k, m) - Round function , where n -> number of iterations (rounds)
+F(K,X) = Y:
+  - K key
+  - X input
+  - Y output
+PRP: E(k,x) = D(k, y)
+PRP is special case of PRF where X=Y
+
+ECB 	Electronic code block: 	not semantically secure
+CPA 	Chosen plaintext attack
+CCA 	Chosen ciphertext attack
+CTR 	COUNTER
+
+
+
+
+
+3.  Integrity  --> INTEGRITY
+*****************************
+
+MAC	message authentication code
+	Attacker -> Chosen message attack
+
+1)
+CBC-MAC / NMAC	Banking (ANSI X9.9, X9.19 ...) / sequential
+ECBC	Encrypted CBC-MAC -> used in  AES, 802.11i
+
+CMAC 	NIST standard on CBC-MAC,recommended to use as CBC mac
+--------------------------------------------------------------
+
+
+3)
+PMAC			Parallel MAC / parallel
+One time MAC	<==> One time pad , executed for each message
+CW-MAC          Carter -Wegman MAC	combination PRF + one time Mac
+-------------------------------------------------
+
+
+2)
+NMAC	Nested MAC	/ sequential
+NMAC    basis for HMAC
+
+
+Carter-­‐Wegman	 MAC    randomized MAC, built from one time MAC
+
+
+Hash-function --> m1 != m2  H(m1)=H(m2), with very low Advantage, close to 0
+Collission resistance: read-only public spaces  (see 06-coll...pdf)
+
+
+Merkle- Damgard paradigm:
+ Init vector(IV)
+ h	block compression function
+ H	Final tag
+
+ ******** if  "h" is collision resistant then "H" is so.
+
+Goal: construct compressed function (h)
+
+F.i.
+
+SHA256:
+    - Merkle-Damgard function (H)
+    - Davis-Meyer compress function (h)
+    - Block-cipher: SHACAL-2
+    - mi size = 512 bit
+
+------------------------------------------------------------------------------
+
+4)
+HMAC	Hash-MAC (SSL, ipsec, ssh)
+Timing attack
+
+
+4.  Authenicated Encryption  --> TAMPERING
+******************************************
+
+
+Bad	example: CBC with rand.	IV does	not	provide	AE
+Chosed ciphertext attacks-> playing with IV to to reach result
+
+Common mistake before: incorrect combininig encryption && integrity mechanizms
+Correct design of auth. encryption = IPSec --> page 28, chapter 7.
+Encrypt then Mac standards:
+    - GCM   Galoi counter mode                      (NIST)  !!!!!! recommended touse
+    - CCM   CBC mac + CTR mode encryption (801.11i) (NIST)
+    - EAX   CTR	mode encryp,on then	CMAC
+AEAD  associated with encryption data, f.i IP -> header not encr but body encrypted
+
+OCB -> direct derive AE from PRP ->
+one more approeach to provide AE, different then combain m+tag
+
+
+TLS use case attacks
+--------------------
+TLS1.2 description from crypto pow , see page 38 and lecture
+Before  TLS1.1 -> BEAST attack- > chained IV must not be used
+
+Attacks on TLS1.x <1.1.
+- BEAST
+- Padding oracle
+
+
+802.11.b WEP -> bad example
+----------------------------
+Padding oracle attack: only for CBC encryption not for CTR!!!
+
+Key derivation
+--------------
+KDF     key derivation function
+CTX:    CONTEXT, a string that uniquely iden1fies the applica1on
+HKDF:   a KDF from HMAC
+PBKDF:  Password-­‐Based	 KDF
+
+Extract-­‐then-­‐Expand paradigm
+extractor = salt !!!!!
+
+
+Determenistic encryption: DATA BASES
+-------------------------------------
+SIV:    Synthetic IV, approach to make determenistic encryption CPA secure
+DAE     Determenistic authenticated encryption
+EME     Wide block PRP , to cistruct det encryption with message > 16 bytes.
+        Note, if index <16 bytes , AES enough for determ encryption case
+
+
+Tweakable encryption-> variant of determenistic enc for DISC ENC
+---------------------------------------------------------------
+XTS  PRP for block but not for sector
+
+
+FPE Format preserving encryp1on	- credit cards -> exncrypted result looks like credit card N
+--------------------------------------------------------------------------------------------
+
+PBKDF:  password based KDF, see page 7
+KDF     key derivation function
+
+
+
+5.  Basic key exchange
+***********************
+TTP     trust 3rd party
+
+Toy protocol + TTP: uses symmetric keys, generates shared keys for all parties
+Kerberos uses mechanizm like toy protocol
+    -Toy is insecure again reply attacks
+    -MERKLE
+    -DIFFIE-HELMAN
+    -RSA
+    -BE (2001)
+    -FUNCTIONAL ENC (2011)
+
+MERKLE  protocol without TTP, symmetric crypto, aatacker O(N2) time , f.i 32bit puzzle = 2^64
+
+DIFFIE-HELMAN protocol (no TTP)
+ - exponential gap: worker - attacker
+ - eliptic curve -> improvement of DH to reduce number of modulus
+
+Prime:  prostoe tchislo
+
+RSA  -> PKE
+ PK public key
+ SK secret (private) key
+
+
+Number Theory
+-------------
+
+N   integer
+p   positive prime
+gcd Greatest common divisor
+Zn !!!!! common in crypto (number) theory
+gcd(x,y) = 1    relative prime (otnositelnoe prostoe tsislo)
+
+Ferma / Euler application: generate random primes
+Ord 7(2) -> {1,2,4} = 3
+
+Thm	(Euler): see page 17 !!!!
+Euler --> Generalization of Fermat --> Basis of the RSA cryptosystem
+
+quadratic residue kvadratichnyj ostatok
+Modular	  eth'h roots modularnye korni
+d =	e -­‐1 in  Z p-­‐1 --> d inversion of e
+
+x^(p-­‐1)/2 is called the Legendre Symbol of x over p
+
+if x^(p-­‐1)/2 = 1
+
+Thm	(Euler): see page 24  !!!!  about Q.R.
+
+Finite cyclic group         G = {g, g^2 , g^3 ....}
+The	repeated squaring alg  to calculate g^x fast
+
+– Number of	 elements  in  (Z N ) * is   φ (N) = (p-­‐1)(q-­‐1)  = N-­‐p-­‐q+1 (page 22	11.pdf)
+
+
+
+6.  Public key exchange
+************************
+
+Chosen Ciphertext Security
+PKE secure implementations: trapdoor functions  && DH
+
+One way function: cannot be inverted without SK (secret key)
+Newer apply trapdoor function  directly to message (m)
+
+RSA Rivest, Shamir, Adleman
+
+PKCS1   v1.5 -> attack
+PKCS1   v2.0 -> OAEP
+
+trapdoor functions (such as RSA)  --> OAEP++ , ISO, SAEP --> SSH , SSL, HTTPS , Open ssl
+
+Diffie-­‐Hellman	 protocol --> el gamal encryption ---> 	GPG
+S
+Security DH:
+Computational Diffie-­‐Hellman Assumption
+Hash Diffie-­‐Hellman Assump3on
+Interactive Diffie-­‐Hellman
+
+Variants:  twin ElGamal	  ---> better security
+
+
+Comments
+---------
+
+Integrity, next steps:
+----------------------
+N01	Run python excercises on each OTP: course, mail
+
+
+N01	Run python excercises on each integrity construction
+N02	Run exercises from course on each integrity construction
+N02	Run exercises from course on each integrity construction
+N03 Look Mika's chat on integrity, including online hack possibilities
+N04 Look Security champions resources on integrity
+N06 Look Ilhan's presentation about cryptography
+N07 Check how to  generate insecure MAC from MD hash function (page 30)
+N05 Look OSCP resources on integrity / tools to hack etc
+
+
+Authenticated encryption, next steps
+------------------------------------
+N08 Read specially about TLS security
+
+
+Basic Key Exchange
+------------------
+
+N09 Look traces of DH algorithm (Wireshark)
+N10 Generate key pairs (PKE), use for ssh
+N11 Generate key pairs (PKE), use for another protocol, f.i HTTPS
+N12 Look traces of key exchange for PKE
+N13 https://shoup.net/ , look source codes presented on his site
+N14 Check RSA keys generation by some tools
+N15 Look pkcs1.5 PPROTOCOL in traces on web by wireshark
+N16 Look tools (libraries) using El gamal (GPG?)
+N17 Look in details how GPD used in ESM (backup)
+N18 Look OSCP , crypto part
+N19 Wiki materials
+N20 Ilhan lectures
+N21 Look as hashing && HMAV working in python crypto
+
+3)  ------- OK ---
+
+
