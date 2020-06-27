@@ -158,14 +158,13 @@ Timing attack
 4.  Authenicated Encryption  --> TAMPERING
 ******************************************
 
-
 Bad	example: CBC with rand.	IV does	not	provide	AE
 Chosed ciphertext attacks-> playing with IV to to reach result
 
 Common mistake before: incorrect combininig encryption && integrity mechanizms
 Correct design of auth. encryption = IPSec --> page 28, chapter 7.
 Encrypt then Mac standards:
-    - GCM   Galoi counter mode                      (NIST)  !!!!!! recommended touse
+    - GCM   Galoi counter mode                      (NIST)  !!!!!! recommended to use
     - CCM   CBC mac + CTR mode encryption (801.11i) (NIST)
     - EAX   CTR	mode encryp,on then	CMAC
 AEAD  associated with encryption data, f.i IP -> header not encr but body encrypted
@@ -295,10 +294,10 @@ PKCS1   v2.0 -> OAEP
 trapdoor functions (such as RSA)  --> OAEP++ , ISO, SAEP --> SSH , SSL, HTTPS , Open ssl
 
 Diffie-­‐Hellman	 protocol --> el gamal encryption ---> 	GPG
-S
+
 Security DH:
 Computational Diffie-­‐Hellman Assumption
-Hash Diffie-­‐Hellman Assump3on
+Hash Diffie-­‐Hellman Assumption
 Interactive Diffie-­‐Hellman
 
 Variants:  twin ElGamal	  ---> better security
@@ -329,7 +328,6 @@ N08 Read specially about TLS security
 
 Basic Key Exchange
 ------------------
-
 N09 Look traces of DH algorithm (Wireshark)
 N10 Generate key pairs (PKE), use for ssh
 N11 Generate key pairs (PKE), use for another protocol, f.i HTTPS

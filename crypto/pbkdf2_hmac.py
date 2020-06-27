@@ -32,7 +32,7 @@ def set_password(password):
     # random hexadecimal string
     salt = (secrets.token_hex(16))
     print ("Created salt:\n {}".format(salt))
-
+     
     pwhash = password.encode()
     print ("Encoded pass:\n {}".format(pwhash))
     print ("Encoded salt:\n {}".format(salt.encode()))

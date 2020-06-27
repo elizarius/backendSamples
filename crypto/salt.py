@@ -32,12 +32,12 @@ def set_password(password):
     # random hexadecimal string
     salt = secrets.token_hex(16)
     #salt = (secrets.token_bytes(16))
-    
+
     print ("Created salt:\n {}".format(salt))
 
-    pwhash = password.encode() 
+    pwhash = password.encode()
     print ("Encoded pass:\n {}".format(pwhash))
-     
+
     pwhash = salt.encode() + pwhash
     print ("s+p:\n {}".format(pwhash))
 
@@ -47,9 +47,9 @@ def set_password(password):
 
 def compare_password(given_password, salt, pwhash):
 
-    gpw = given_password.encode() 
+    gpw = given_password.encode()
     print ("Given encoded pass:\n {}".format(gpw))
-     
+
     gpw = salt.encode() + gpw
     print ("s+p:\n {}".format(gpw))
 
