@@ -10,17 +10,6 @@ ROLES = (
     {'assetadmin':
         {'Asset administrator': 'Manage assets in ESM'}}
 )
-#    {'securityadmin':
-#        {'Security administrator': 'Manage logging events in ESM'}},
-#    {'securityoperator':
-#        {'Security operator': 'Execute daily operational activities'}},
-#    {'sysadmin':
-#        {'System administrator': 'Manage users, roles and privileges'}},
-#    {'threatanalyst':
-#        {'Threat analyst': 'Manage and execute basic analytics activities'}},
-#    {'superuser':
-#        {'Super user': 'Complete ESM access for deployment and emergency'}}
-
 
 for role in ROLES:
     print (role)

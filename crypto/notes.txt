@@ -308,9 +308,6 @@ Comments
 
 Integrity, next steps:
 ----------------------
-N01	Run python excercises on each OTP: course, mail
-
-
 N01	Run python excercises on each integrity construction
 N02	Run exercises from course on each integrity construction
 N02	Run exercises from course on each integrity construction
@@ -342,6 +339,7 @@ N19 Wiki materials
 N20 Ilhan lectures
 N21 Look as hashing && HMAV working in python crypto
 
-3)  ------- OK ---
 
+****************************************************
+N01	Run python excercises on OTP: course, mail  Done
 
