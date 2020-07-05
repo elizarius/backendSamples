@@ -79,7 +79,7 @@ Page 16  OTP review , very short !!!!!!!
 PRF:    pseudo random function
 PRP	    pseudo random permutation (inversion)
 CBC:    cipher block chaining
-CTR     COUNTER mode, another mode in add to CBC
+CTR     COUNTER mode, another enc mode 
 
 R(k, m) - Round function , where n -> number of iterations (rounds)
 F(K,X) = Y:
@@ -92,9 +92,9 @@ PRP is special case of PRF where X=Y
 ECB 	Electronic code block: 	not semantically secure
 CPA 	Chosen plaintext attack
 CCA 	Chosen ciphertext attack
-CTR 	COUNTER
 
-
+Classical modes of encryption for symmitric block ciphers
+https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
 
 
 
@@ -318,11 +318,6 @@ N07 Check how to  generate insecure MAC from MD hash function (page 30)
 N05 Look OSCP resources on integrity / tools to hack etc
 
 
-Authenticated encryption, next steps
-------------------------------------
-N08 Read specially about TLS security
-
-
 Basic Key Exchange
 ------------------
 N09 Look traces of DH algorithm (Wireshark)
@@ -338,8 +333,4 @@ N18 Look OSCP , crypto part
 N19 Wiki materials
 N20 Ilhan lectures
 N21 Look as hashing && HMAV working in python crypto
-
-
-****************************************************
-N01	Run python excercises on OTP: course, mail  Done
 

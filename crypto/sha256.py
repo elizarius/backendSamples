@@ -3,15 +3,15 @@ import hashlib
 import secrets
 import hmac
 
-# AELZ_01 sha256 is not recommended to use alone for passwords as naive algo
+# AELZ_01 sha256 alone is not recommended to use alone for passwords as naive algo
 # Use pbkdf2 instead (salting, IV, deviation)
-# 
+#
 # AELZ_02:
-#   - hmac is algo (sha256) + key + method to encrypt 
+#   - hmac is algo (sha256) + key + method to encrypt
 #   - sha256 is algo based on MAC?, no keys, vulnerable to several types of attacks as
 #   dictionary, rainbow
 #   - pbkdf2 recommended to use instead (salting, IV, deviation, key, message). At least
-#   
+#
 
 def read_password():
     print('Reading password from stdin', flush=True)
