@@ -21,7 +21,7 @@ print (fruits)
 
 
 print ('deleted orange, banana')
-## delete operation is not supposrted  for tuples
+## delete operation is not supported  for tuples
 #del fruits[0]
 #del fruits[5]
 
