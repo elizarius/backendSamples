@@ -79,7 +79,7 @@ Page 16  OTP review , very short !!!!!!!
 PRF:    pseudo random function
 PRP	    pseudo random permutation (inversion)
 CBC:    cipher block chaining
-CTR     COUNTER mode, another enc mode 
+CTR     COUNTER mode, another enc mode
 
 R(k, m) - Round function , where n -> number of iterations (rounds)
 F(K,X) = Y:
@@ -89,9 +89,11 @@ F(K,X) = Y:
 PRP: E(k,x) = D(k, y)
 PRP is special case of PRF where X=Y
 
-ECB 	Electronic code block: 	not semantically secure
-CPA 	Chosen plaintext attack
-CCA 	Chosen ciphertext attack
+CB     Electronic code block: not semantically secure
+CPA     Chosen plaintext attack
+CCA     Chosen ciphertext attack
+CTR     COUNTER
+
 
 Classical modes of encryption for symmitric block ciphers
 https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
@@ -153,6 +155,15 @@ SHA256:
 4)
 HMAC	Hash-MAC (SSL, ipsec, ssh)
 Timing attack
+
+
+Crypto python resources:
+https://docs.python.org/3/library/crypto.html
+
+https://www.dlitz.net/software/python-pbkdf2/
+
+# Getting of passsword wwithout echo function
+https://docs.python.org/3.6/library/getpass.html
 
 
 4.  Authenicated Encryption  --> TAMPERING
@@ -293,8 +304,9 @@ PKCS1   v2.0 -> OAEP
 
 trapdoor functions (such as RSA)  --> OAEP++ , ISO, SAEP --> SSH , SSL, HTTPS , Open ssl
 
-Diffie-­‐Hellman	 protocol --> el gamal encryption ---> 	GPG
-
+Diffie-­‐Hellman	 protocol --> el gamal encryption ---> GPG
+S
+>>>>>>> crypto: update resources
 Security DH:
 Computational Diffie-­‐Hellman Assumption
 Hash Diffie-­‐Hellman Assumption
