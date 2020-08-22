@@ -79,7 +79,7 @@ Page 16  OTP review , very short !!!!!!!
 PRF:    pseudo random function
 PRP	    pseudo random permutation (inversion)
 CBC:    cipher block chaining
-CTR     COUNTER mode, another enc mode 
+CTR     COUNTER mode, another enc mode
 
 R(k, m) - Round function , where n -> number of iterations (rounds)
 F(K,X) = Y:
@@ -92,9 +92,6 @@ PRP is special case of PRF where X=Y
 ECB 	Electronic code block: 	not semantically secure
 CPA 	Chosen plaintext attack
 CCA 	Chosen ciphertext attack
-
-Classical modes of encryption for symmitric block ciphers
-https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
 
 
 
@@ -155,6 +152,7 @@ HMAC	Hash-MAC (SSL, ipsec, ssh)
 Timing attack
 
 
+
 4.  Authenicated Encryption  --> TAMPERING
 ******************************************
 
@@ -211,7 +209,7 @@ Tweakable encryption-> variant of determenistic enc for DISC ENC
 XTS  PRP for block but not for sector
 
 
-FPE Format preserving encryp1on	- credit cards -> exncrypted result looks like credit card N
+FPE Format preserving encryption	- credit cards -> exncrypted result looks like credit card N
 --------------------------------------------------------------------------------------------
 
 PBKDF:  password based KDF, see page 7
@@ -303,19 +301,13 @@ Interactive Diffie-­‐Hellman
 Variants:  twin ElGamal	  ---> better security
 
 
+
 Comments
 ---------
 
 Integrity, next steps:
 ----------------------
-N01	Run python excercises on each integrity construction
-N02	Run exercises from course on each integrity construction
-N02	Run exercises from course on each integrity construction
-N03 Look Mika's chat on integrity, including online hack possibilities
-N04 Look Security champions resources on integrity
-N06 Look Ilhan's presentation about cryptography
-N07 Check how to  generate insecure MAC from MD hash function (page 30)
-N05 Look OSCP resources on integrity / tools to hack etc
+N01 Look exercise in Coursera
 
 
 Basic Key Exchange
@@ -334,3 +326,20 @@ N19 Wiki materials
 N20 Ilhan lectures
 N21 Look as hashing && HMAV working in python crypto
 
+N23    CISSP: run tests on system engineering, to be sure that cryptography covered well.
+N24    Read about digital signitures: Andersson, wikipedia etc
+N25    Find way to use digital signatures
+
+
+
+Classical modes of encryption for symmetric block ciphers
+https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
+
+AES GCM recommended mode:
+https://web.cs.ucdavis.edu/~rogaway/papers/modes.pdf
+
+python libraries:
+https://www.pycryptodome.org/en/latest/
+https://cryptography.io
+https://github.com/google/tink/blob/master/docs/PYTHON-HOWTO.md
+https://crackstation.net/
