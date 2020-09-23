@@ -13,6 +13,7 @@
 - quadratic residue kvadratichnyj ostatok
 - Modular eth'h roots modularnye korni
 
+- Prime:        prostoe tchislo
 
 2.  Symmetric encryption
 ************************
@@ -247,7 +248,7 @@ DIFFIE-HELMAN protocol (no TTP)
  - exponential gap: worker - attacker
  - eliptic curve -> improvement of DH to reduce number of modulus
 
-Prime:  prostoe tchislo
+
 
 RSA  -> PKE
  PK public key
@@ -319,22 +320,38 @@ Comments
 N01 Generate SSH KEYS  -  ssh-keygen
 
 N11 Generate certificartes + key pairs (PKE), use for HTTPS (ssl, tls)
-- openssl  OR  gpg 
+- openssl  OR  gpg
 
 
 Key Exchange
 ------------
 
 N13 https://shoup.net/, look source codes presented on his site
+=======
+Basic Key Exchange
+------------------
+N09 Look traces of DH algorithm (Wireshark)
+N10 Generate key pairs (PKE), use for ssh
+N11 Generate key pairs (PKE), use for another protocol, f.i HTTPS
+N12 Look traces of key exchange for PKE
+N13 https://shoup.net/ , look source codes presented on his site
+N14 Check RSA keys generation by some tools
+N15 Look pkcs1.5 PPROTOCOL in traces on web by wireshark
+N16 Look tools (libraries) using El gamal (GPG?)
+N17 Look in details how GPD used in ESM (backup)
+N19 Wiki materials
+N20 Ilhan lectures
+N21 Look as hashing && HMAV working in python crypto
 
 N23    CISSP: run tests on system engineering, to be sure that cryptography covered well.
 N24    Read about digital signitures: Andersson, wikipedia etc
 N25    Find way to use digital signatures
 
+
 Classical modes of encryption for symmetric block ciphers
 https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
 
-Public keys, python 
+Public keys, python
 https://pycryptodome.readthedocs.io/en/latest/src/public_key/public_key.html
 
 AES GCM recommended mode:
