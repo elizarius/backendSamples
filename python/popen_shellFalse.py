@@ -9,16 +9,16 @@ def test_cmd(cmd):
 
     if '|' in cmd:
         print ('AELZ  pipe found')
-        return 
+        return
 
     if '>' in cmd:
         print ('AELZ redirect found')
-        return 
+        return
 
 
     words = cmd.split(" ")
     p_two = subprocess.Popen(words,
-                            shell=False,                                                    
+                            shell=False,
                             stdout=subprocess.PIPE,
                             stderr=subprocess.PIPE)
     out, err = p_two.communicate()

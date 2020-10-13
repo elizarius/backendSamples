@@ -1,0 +1,64 @@
+Skillsoft exercises marked as _ss in file name
+----------------------------------------------
+
+Note: 
+-----
+AELZ_203: ex32: examples for cycle and lists (like array in C language)
+AELZ_204: ex33: while loop
+AELZ_204: ex37: main keywords list  !!!!!!!
+-----
+
+Python: The Basics                  Done
+Python Fundamentals(optional)       Done
+
+
+Python: Classes and Modules
+Python: Iteration and Exceptions
+
+Conditional Statements & Loops: The Basics of for…
+Conditional Statements & Loops: While Loops in Python
+Conditional Statements & Loops: Advanced Operations…
+
+Python Requests: HTTP Requests with Python
+
+Advanced Python Topics: File Operations in Python
+Advanced Python Topics: Exceptions & Command Line…
+Advanced Python Topics: Python Modules & VirtuaL ENVS
+
+Python Classes & Inheritance: Working with Inheritance…
+Python Classes & Inheritance: Advanced Functionality…
+
+Data Structures & Algorithms in Python: Fundamental…
+Data Structures & Algorithms in Python: Sorting…
+Data Structures & Algorithms in Python: Trees & Graphs
+Data Structures & Algorithms in Python: Implementing trees
+Data Structures & Algorithms in Python: Implementing sorting
+
+Socket Programming in Python: Introduction
+Socket Programming in Python: Advanced Topics
+
+Python Concurrent Programming: Introduction to CR
+Python Concurrent Programming: Asynchronous Executions…
+Python Concurrent Programming: Multithreading in Python
+Python Concurrent Programming: Multiprocessing in Python
+
+Python: Data Bases working
+
+Python Unit Testing: Testing Python Code Using pytest
+(Course)Python 3: Python - Introduction to NumPy for…
+Building Web Apps Using Django: Implementing Login &…
+Building Web Apps Using Django: Generic Views
+Python: Web Application Development
+
+Flask in Python: User Interactions in Flask…
+Python for Data Science – Complex Data Engineering in…
+Python Applications
+Python for Data Science – Introduction to Python for…
+Python: Data Science Fundamentals
+
+
+
+Notes: 
+------
+
+PEP python enchancement proposal§

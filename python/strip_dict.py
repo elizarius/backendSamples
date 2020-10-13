@@ -36,5 +36,3 @@ print ' original xml_str'
 print ''
 print xml_str
 
-
-

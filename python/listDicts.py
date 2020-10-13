@@ -63,10 +63,6 @@ print ('***************JSON DUMP: \n')
 print (a1)
 
 
-
-#print ('***************iterating by key 1  \n')
-#print (R1)
-
 print ('***************iterating by key 2 \n')
 
 

@@ -32,7 +32,7 @@ def set_password(password):
     # random hexadecimal string
     salt = (secrets.token_hex(16))
     print ("Created salt:\n {}".format(salt))
-     
+
     pwhash = password.encode()
     print ("Encoded pass:\n {}".format(pwhash))
     print ("Encoded salt:\n {}".format(salt.encode()))
@@ -43,7 +43,7 @@ def set_password(password):
 
 def compare_password(given_password, salt, pwhash):
 
-    gpw = given_password.encode() 
+    gpw = given_password.encode()
     print ("Given encoded pass:\n {}".format(gpw))
     print ("Received salt:\n {}".format(salt))
     s = salt.encode()
@@ -53,7 +53,7 @@ def compare_password(given_password, salt, pwhash):
     dk = hashlib.pbkdf2_hmac('sha256', gpw, s, 100000)
     dk = dk.hex()
     print ("Given hash:\n {}".format(dk))
-     
+
     if not compare_digest(dk, pwhash):
         # use generic error to make it harder for an attacker
         raise DecryptionError('Wrong passphrase')

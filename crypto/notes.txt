@@ -1,5 +1,5 @@
 1.  Intro + one timecipher (OTP)
-****************
+********************************
 
  -eavesdropping podsmatrivanie
  -tampering     podmena, falsifikacija
@@ -10,9 +10,12 @@
  -malleable     podatlivyyi
 - KEYSTROKE     nazhatie klavishi
 - authenticity  podlinnost' == repudaitaion
+- quadratic residue kvadratichnyj ostatok
+- Modular eth'h roots modularnye korni
 
 
-Symmetric encryption
+2.  Symmetric encryption
+************************
 
 E, D:   cipher
 k:      secret key (e.g. 128 bits)
@@ -73,7 +76,7 @@ eStream (2008) -> SALSA20 ->  seed x R(nonce)
 Page 16  OTP review , very short !!!!!!!
 
 
-2.  Block ciphers --> CONFIDENTIALITY
+3.  Block ciphers --> CONFIDENTIALITY
 *************************************
 
 PRF:    pseudo random function
@@ -95,9 +98,7 @@ CCA     Chosen ciphertext attack
 CTR     COUNTER
 
 
-
-
-3.  Integrity  --> INTEGRITY
+4.  Integrity  --> INTEGRITY
 *****************************
 
 MAC	message authentication code
@@ -107,7 +108,7 @@ MAC	message authentication code
 CBC-MAC / NMAC	Banking (ANSI X9.9, X9.19 ...) / sequential
 ECBC	Encrypted CBC-MAC -> used in  AES, 802.11i
 
-CMAC 	NIST standard on CBC-MAC,recommended to use as CBC mac
+CMAC    NIST standard on CBC-MAC,recommended to use as CBC mac
 --------------------------------------------------------------
 
 
@@ -163,7 +164,7 @@ https://www.dlitz.net/software/python-pbkdf2/
 https://docs.python.org/3.6/library/getpass.html
 
 
-4.  Authenicated Encryption  --> TAMPERING
+5.  Authenicated Encryption  --> TAMPERING
 ******************************************
 
 Bad	example: CBC with rand.	IV does	not	provide	AE
@@ -227,7 +228,7 @@ KDF     key derivation function
 
 
 
-5.  Basic key exchange
+6.  Basic key exchange
 ***********************
 TTP     trust 3rd party
 
@@ -285,7 +286,7 @@ The	repeated squaring alg  to calculate g^x fast
 
 
 
-6.  Public key exchange
+7.  Public key exchange
 ************************
 
 Chosen Ciphertext Security
@@ -302,7 +303,8 @@ PKCS1   v2.0 -> OAEP
 trapdoor functions (such as RSA)  --> OAEP++ , ISO, SAEP --> SSH , SSL, HTTPS , Open ssl
 
 Diffie-­‐Hellman	 protocol --> el gamal encryption ---> GPG
-S
+
+
 >>>>>>> crypto: update resources
 Security DH:
 Computational Diffie-­‐Hellman Assumption
@@ -312,39 +314,28 @@ Interactive Diffie-­‐Hellman
 Variants:  twin ElGamal	  ---> better security
 
 
-
 Comments
 ---------
+N01 Generate SSH KEYS  -  ssh-keygen
 
-Integrity, next steps:
-----------------------
-N01 Look exercise in Coursera
+N11 Generate certificartes + key pairs (PKE), use for HTTPS (ssl, tls)
+- openssl  OR  gpg 
 
 
-Basic Key Exchange
-------------------
-N09 Look traces of DH algorithm (Wireshark)
-N10 Generate key pairs (PKE), use for ssh
-N11 Generate key pairs (PKE), use for another protocol, f.i HTTPS
-N12 Look traces of key exchange for PKE
-N13 https://shoup.net/ , look source codes presented on his site
-N14 Check RSA keys generation by some tools
-N15 Look pkcs1.5 PPROTOCOL in traces on web by wireshark
-N16 Look tools (libraries) using El gamal (GPG?)
-N17 Look in details how GPD used in ESM (backup)
-N18 Look OSCP , crypto part
-N19 Wiki materials
-N20 Ilhan lectures
-N21 Look as hashing && HMAV working in python crypto
+Key Exchange
+------------
+
+N13 https://shoup.net/, look source codes presented on his site
 
 N23    CISSP: run tests on system engineering, to be sure that cryptography covered well.
 N24    Read about digital signitures: Andersson, wikipedia etc
 N25    Find way to use digital signatures
 
-
-
 Classical modes of encryption for symmetric block ciphers
 https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html
+
+Public keys, python 
+https://pycryptodome.readthedocs.io/en/latest/src/public_key/public_key.html
 
 AES GCM recommended mode:
 https://web.cs.ucdavis.edu/~rogaway/papers/modes.pdf
