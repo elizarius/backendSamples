@@ -16,17 +16,7 @@ ROLES = [
 ]
 
 
-ROLES = [
-    {'advancedanalyst':
-        {'Advanced analyst':
-            'Manage and execute advanced analytics activities'}},
-    {'assetadmin':
-        {'Asset administrator': 'Manage assets in ESM'}}
-]
-
 R1 = {'aelz': ROLES}
-
-
 for role in ROLES:
     print (role)
 

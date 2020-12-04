@@ -19,3 +19,10 @@ msg  = '{}'.format(tenant)
 print (tenant)
 print (msg)
 
+
+# print apostrof
+print ('*** Printing apostrofs *****')
+print (" *** 'HAHHA INAPS' ")
+
+
+

@@ -1,32 +1,33 @@
 Skillsoft exercises marked as _ss in file name
 ----------------------------------------------
 
-Note: 
------
-AELZ_203: ex32: examples for cycle and lists (like array in C language)
-AELZ_204: ex33: while loop
-AELZ_204: ex37: main keywords list  !!!!!!!
+Note:
 -----
 
 Python: The Basics                  Done
-Python Fundamentals(optional)       Done
+Python Fundamentals (optional)      Done
+
+Python: Classes and Modules         Done
+    - good examples on read, write files, including performance and binary files pack / unpack / parse
+
+Iterables & Generators              Opt
+    - map/filter functions, rest can be ignored
 
 
-Python: Classes and Modules
-Python: Iteration and Exceptions
-
-Conditional Statements & Loops: The Basics of for…
-Conditional Statements & Loops: While Loops in Python
-Conditional Statements & Loops: Advanced Operations…
+Conditional Statements & Loops: The Basics of for…      Opt
+Conditional Statements & Loops: While Loops in Python   Opt
+Conditional Statements & Loops: Advanced Operations     Opt
 
 Python Requests: HTTP Requests with Python
+
+
+
+Python Classes & Inheritance: Working with Inheritance…
+Python Classes & Inheritance: Advanced Functionality…
 
 Advanced Python Topics: File Operations in Python
 Advanced Python Topics: Exceptions & Command Line…
 Advanced Python Topics: Python Modules & VirtuaL ENVS
-
-Python Classes & Inheritance: Working with Inheritance…
-Python Classes & Inheritance: Advanced Functionality…
 
 Data Structures & Algorithms in Python: Fundamental…
 Data Structures & Algorithms in Python: Sorting…
@@ -61,4 +62,4 @@ Python: Data Science Fundamentals
 Notes: 
 ------
 
-PEP python enchancement proposal§
+PEP python enchancement proposal

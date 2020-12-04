@@ -5,18 +5,11 @@ if sys.version_info < (3,):
 else:
    from http import HTTPStatus as httpstatus
 
-
-
-
-#nf = HTTPStatus.NOT_FOUND
-#ok = HTTPStatus.OK
-
 nf = httpstatus.NOT_FOUND
 ok = httpstatus.OK
 
 zz = httpstatus.OK
 
-#print("Http status %s , %s" % (nf.value, ok.value))
 print("Http status %s , %s" % (nf, ok))
 print("Http status {0},{1}".format(nf, ok))
 

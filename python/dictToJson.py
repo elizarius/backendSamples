@@ -14,12 +14,11 @@ TENANT_ROLES_DESCRIPTION = {
 
 
 
-print '----------   DICT  -------------'
-print  TENANT_ROLES_DESCRIPTION 
-print ''
-print '-------------------------------'
+print('----------   DICT  -------------')
+print(TENANT_ROLES_DESCRIPTION)
+print('\n\n-------------JSON----------------')
 data = json.dumps(TENANT_ROLES_DESCRIPTION )
-print  data
+print(data)
 
 
 #print ''

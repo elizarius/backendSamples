@@ -10,6 +10,7 @@ b_range = range(5,-1,-1)
 
 print('* Range type: ', a_range)
 print('* Range to list: ', list(a_range))
+print('* Range to tuple: ', tuple(a_range))
 
 for i in a_range:
     print(i)
@@ -26,7 +27,7 @@ print('* Set type: ', basket)
 set_n = {1,6,10}
 combined = basket.union(set_n)
 print('** Union  Set: ', combined)
-print'** Union  Set combined: ', sorted(combined)
+#print('** Union  Set combined: '.format(sorted(combined)))
 print('** Set operations:\n'
     ' |,\n inrersection,\n simmetric_intersection,\n difference....\n')
 
@@ -42,6 +43,13 @@ print ('*** Dic keys: {}'.format(dict.keys()))
 print ('*** Dic values: {}'.format(dict.values()))
 print ('*** Dic items: {}'.format(dict.items()))
 
-# zip is used to pack key / value f.i to creat new dictionary new dictionary 
+# zip is used to pack key / value f.i to create new dictionary
+
+#   4. Test  on empty dictionary
+test_dic = {}
+if bool(test_dic):
+    print('Not Empty dictionary')
+else:
+    print('REALLY Empty dictionary')
 
 

@@ -27,3 +27,7 @@ print (dir())
 from math import *
 print (dir())
 
+import sys
+print ('SYS Path: '.format(sys.path))
+# sys.path.append if required
+

@@ -10,10 +10,16 @@ print('**** Subslicing [:2]: ', fruits[:2])
 print('**** Subslicing until end[2:]: ', fruits[2:])
 print('**** Subslicing by step [::2] --> 1,3,5: ', fruits[::2])
 
-# Create a reference 
+# Create a reference
 fruits_ref = fruits
 print('**** By reference [2:]: ', fruits_ref[2:])
 fruits_copy = fruits[:]
 fruits_copy.pop()
 print('**** By copy  [2:]: ', fruits_copy[2:])
 print('**** Subslicing orig [2:]: ', fruits[2:])
+
+
+# Slicing exercise 1
+es_url = 'https://hui.sobaka.com:121'
+print ('\n\nAELZ exercise original: {}'.format(es_url))
+print ('\n\nAELZ stripped http: {}'.format(es_url.partition('://')[2].partition(':')[0]))
