@@ -18,11 +18,10 @@ Conditional Statements & Loops: The Basics of for…      Opt
 Conditional Statements & Loops: While Loops in Python   Opt
 Conditional Statements & Loops: Advanced Operations     Opt
 
-Python Requests: HTTP Requests with Python
+Python Requests: HTTP Requests with Python              Done
 
 
-
-Python Classes & Inheritance: Working with Inheritance…
+Python Classes & Inheritance: Working with Inheritance  Done 
 Python Classes & Inheritance: Advanced Functionality…
 
 Advanced Python Topics: File Operations in Python
@@ -56,10 +55,3 @@ Python for Data Science – Complex Data Engineering in…
 Python Applications
 Python for Data Science – Introduction to Python for…
 Python: Data Science Fundamentals
-
-
-
-Notes: 
-------
-
-PEP python enchancement proposal
