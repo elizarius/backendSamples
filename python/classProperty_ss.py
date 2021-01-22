@@ -42,7 +42,9 @@ print('\n** Buildins can be overloaded')
 print(attrs)
 
 print(an.__doc__)
+print(an.__str__)
+
 #help(__name__)     # doc for main module
 #help(an.__init__)  # doc for functions
-help(an)            # doc for animal class
+#help(an)            # doc for animal class
 

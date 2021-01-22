@@ -7,7 +7,8 @@ Terminology:
 - Type:         type of object type(x)
 - Attribute:    data members of type or class dir(X) in terms C++  --> hasattr
 - Properties:   special attributes, like  __get__, __set__, __delete__ , 
-                f.i. used to limit access to  attributes if want to make attr private
+                f.i. used to limit access to  attributes if want to make attr private.
+                See classProperties_ss.py
 - Method:       data functions in terms C++ 
 """
 
@@ -25,6 +26,12 @@ class Animal(object):
 
     def __str__(self):
         return('AELZ animal')
+    
+    def __repr__(self):
+        return('Animal representation: {} : {} : {}'.format(self.name,
+                                                            self.color, 
+                                                            self.age))
+
 
     def get_name(self):
         return(self.name)
@@ -37,9 +44,18 @@ class Animal(object):
 
 # 1. Class attributes (properties) of class
 an = Animal()
-attrs =vars(an)
-print('\n*  example')
-print (attrs)
+print('\n*  Attributes of Class instance ')
+print (vars(an))
+
+print('\n*  Class representation (__repr__)')
+print (repr(an))
+
+print('\n*  Class representation by string (__str__)')
+print (str(an))
+
+
+
+print('\n*  Attributes of Class ')
 print (vars(Animal))
 
 # 2. Class and type operations
@@ -51,6 +67,7 @@ print('** Type of Animal instance: {} '.format(type(an)))
 print('** Type of Animal class: {} '.format(type(Animal)))
 print('** Type of Animal class name: {} '.format(an.__class__))
 print('\n** Convert Animal class to dict: {} '.format(an.__dict__))
+
 print('\n** Animal Other attr: {} '.format(an.__module__))
 # print class name via __str__ method
 print('\n** Animal str attr: {} '.format(an.__str__()))
@@ -130,4 +147,5 @@ d2 = Der2()
 d2.print_method()
 d2.print_base()
 
+print('\n\n ************  Special Methods  **********')
 

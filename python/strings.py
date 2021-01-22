@@ -13,6 +13,9 @@ print ('%s' % (s3))
 tenant = 'tenant123'
 print (tenant)
 
+
+print ('AELZ: ', tenant)
+
 tenant=tenant.capitalize()
 tenant= tenant[:6]+'Id:'+tenant[6:]
 msg  = '{}'.format(tenant)
