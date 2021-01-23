@@ -4,13 +4,13 @@ Skillsoft exercises marked as _ss in file name
 Note:
 -----
 
-Python: The Basics                  Done
-Python Fundamentals (optional)      Done
+Python: The Basics                                      Done
+Python Fundamentals (optional)                          Done
 
-Python: Classes and Modules         Done
+Python: Classes and Modules                             Done
     - good examples on read, write files, including performance and binary files pack / unpack / parse
 
-Iterables & Generators              Opt
+Iterables & Generators                                  Opt
     - map/filter functions, rest can be ignored
 
 
@@ -20,9 +20,19 @@ Conditional Statements & Loops: Advanced Operations     Opt
 
 Python Requests: HTTP Requests with Python              Done
 
-
 Python Classes & Inheritance: Working with Inheritance  Done 
-Python Classes & Inheritance: Advanced Functionality…
+
+Python Classes & Inheritance: Advanced Functionality
+    - overlapped with prev courses, examples:
+    - builtin types (properties)
+    - custom implementation of properties 
+    - iterators
+    - class properties
+    - staticmethod, classmethod, 
+    - abstract class, abstract method
+
+
+AELZ_01: CLI processor to process elementary samples, including http requests
 
 Advanced Python Topics: File Operations in Python
 Advanced Python Topics: Exceptions & Command Line…

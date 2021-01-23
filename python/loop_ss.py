@@ -74,6 +74,6 @@ print('\n 7***  continue usage')
 fruits = ['1orange', 'apple', 'pear', 'banana', 'kiwi', 'apple']
 for fruit in fruits:
   if  fruit != 'apple':
-    continue 
+    continue
   print (fruit)
 

@@ -6,8 +6,7 @@ Docstring format of documentation defined in PEP 257
 
 '''
 
-# Property is as private member to limit access to
-# data member to be private
+# @property is an encapsultor of data member to simplify get, set del functions 
 #
 class Animal(object):
     '''
@@ -18,7 +17,8 @@ class Animal(object):
     def __init__(self):
         self._legs = 2
 
-    @property
+    # @pZZZZ also named decorator tappern
+    @property       
     def legs(self):
         return(self._legs)
 
@@ -27,6 +27,11 @@ class Animal(object):
     def legs(self, val):
       self._legs = val
 
+    @legs.deleter
+    def legs(self):
+        del self._legs
+
+
     # Note: property also might have getter, deleter, doc string
     # https://docs.python.org/3.6/library/functions.html#property
 
@@ -34,12 +39,16 @@ an = Animal()
 print('\n** Property legs:  {} '.format(an.legs))
 an.legs = 4
 print('\n** Property legs:  {} '.format(an.legs))
+print('\n** Legs:  {} '.format(an._legs))   # possible call method dicrectly, that is strange
 
-#  Build in class methods can be overloaded
-attrs = dir(an)
 
-print('\n** Buildins can be overloaded')
-print(attrs)
+print('\n** Buildins(properties) can be overloaded')
+print(dir(an))
+
+print(an.__dict__)
+
+print(Animal.__dict__)
+
 
 print(an.__doc__)
 print(an.__str__)

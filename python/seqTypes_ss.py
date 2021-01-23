@@ -82,7 +82,7 @@ print ('\n map of fruits returns object: {}'.format(fr1))
 print ('\n map of fruits returns set: {}'.format(set(fr1)))
 print ('\n map of fruits returns tuple: {}'.format(tuple(fr1))) # !!!! only set is working in python3
 
- 
+
 # Filter funtion is similar to map
 print('Filter example: {}'.format(list(map(lambda val: len(val), fruits))))
 
