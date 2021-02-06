@@ -9,7 +9,7 @@ class   Setter(ABC):   # means class incomplete and has some empty methods
         self.key_1 = instance_attr
 
 
-    @abstractmethod  
+    @abstractmethod
     def get_global_key():
         pass
 

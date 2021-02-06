@@ -21,9 +21,9 @@ with open(fl) as text_file:
     print(zz)
 
 
-''' 
-Write file: w, a options 
-r read 
+'''
+Write file: w, a options
+r read
 rb, wb  binary files
 '''
 with open('aelz.txt', mode ='r' ) as text_file:

@@ -22,7 +22,7 @@ Python Requests: HTTP Requests with Python              Done
 
 Python Classes & Inheritance: Working with Inheritance  Done 
 
-Python Classes & Inheritance: Advanced Functionality
+Python Classes & Inheritance: Advanced Functionality    Done
     - overlapped with prev courses, examples:
     - builtin types (properties)
     - custom implementation of properties 
@@ -55,12 +55,16 @@ Python Concurrent Programming: Multiprocessing in Python
 Python: Data Bases working
 
 Python Unit Testing: Testing Python Code Using pytest
-(Course)Python 3: Python - Introduction to NumPy for…
+
+Python 3: Python - Introduction to NumPy for…
+
 Building Web Apps Using Django: Implementing Login &…
 Building Web Apps Using Django: Generic Views
+
 Python: Web Application Development
 
 Flask in Python: User Interactions in Flask…
+
 Python for Data Science – Complex Data Engineering in…
 Python Applications
 Python for Data Science – Introduction to Python for…

@@ -18,7 +18,6 @@ fruits_copy.pop()
 print('**** By copy  [2:]: ', fruits_copy[2:])
 print('**** Subslicing orig [2:]: ', fruits[2:])
 
-
 # Slicing exercise 1
 es_url = 'https://hui.sobaka.com:121'
 print ('\n\nAELZ exercise original: {}'.format(es_url))

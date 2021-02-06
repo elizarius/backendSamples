@@ -7,7 +7,6 @@ class Palindrome:
             print("AELZ letter {}".format(word[i]))
             if word[i].lower() != word[ls-i-1].lower():
                 return False
-        
         return True
 
 print(Palindrome.is_palindrome('Deleveled'))
