@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-# input form command line stdin example, raw_input() for python2 only 
+# input form command line stdin example, raw_input() for python2 only
 # example multiple same symbols print
 print('*'*10)
- 
+
 print ("How old are you?")
 age = input()
 print ("How tall are you?")

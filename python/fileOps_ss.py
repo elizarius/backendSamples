@@ -7,6 +7,7 @@ fl ='math_ss.py'
 
 ''' Read text file line by line'''
 with open(fl) as text_file:
+    print ('AELZ: name {}  position {}'.format(text_file.name, text_file.tell()))
     for line in text_file:
         print(line)
 

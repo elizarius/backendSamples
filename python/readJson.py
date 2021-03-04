@@ -63,12 +63,17 @@ def read_config_file(path):
         return config
 
 def main():
-    path = "/home/ealexel/samples/pythonExample/black_listed.json"
+    path = "/home/aelz/repa/backendSamples/python/black_listed.json"
     cred = 'asset_inventory_cloudcredentials'
     config = read_config_file(path)
     config1 = json.dumps(config)
     print("Config: {}.".format(config))
     print("Config1: {}.".format(config1))
+
+
+    print("\nTypes : {} {}.".format(type(config), type(config1)))
+
+
 
     # Aelz: dumped object cannot be accessed as dictionary because represent string.
     #print("Config1[]: {}.".format(config1.get('inventory_cloud_credentials',[] )))

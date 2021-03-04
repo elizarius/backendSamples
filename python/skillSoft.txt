@@ -1,9 +1,6 @@
 Skillsoft exercises marked as _ss in file name
 ----------------------------------------------
 
-Note:
------
-
 Python: The Basics                                      Done
 Python Fundamentals (optional)                          Done
 
@@ -31,18 +28,86 @@ Python Classes & Inheritance: Advanced Functionality    Done
     - staticmethod, classmethod, 
     - abstract class, abstract method
 
+Advanced Python Topics: File Operations in Python       Opt
+    - examples of jscon and csv files parsing
 
-AELZ_01: CLI processor to process elementary samples, including http requests
+Advanced Python Topics: Exceptions & Command Line…      Done
+Advanced Python Topics: Python Modules & VirtuaL ENVS   The same as above "Classes and modules"
 
-Advanced Python Topics: File Operations in Python
-Advanced Python Topics: Exceptions & Command Line…
-Advanced Python Topics: Python Modules & VirtuaL ENVS
 
-Data Structures & Algorithms in Python: Fundamental…
-Data Structures & Algorithms in Python: Sorting…
-Data Structures & Algorithms in Python: Trees & Graphs
-Data Structures & Algorithms in Python: Implementing trees
-Data Structures & Algorithms in Python: Implementing sorting
+Data Structures & Algorithms in Python: Fundamental…    Done
+    - measurment performance
+    - Big O notation
+    - O(1)  complexity does not change with the input size, same constant execution time
+    - O(N)  complexity (time by algorithm increases) linearly when N increases
+    - O(Nx2) complexity increases quadratically when N increases
+
+    - Linked list complexity:
+        O(N) insert to end
+        O(1) insert to begining
+        O(N) find in linked list
+        O(1) deleting of first element
+        O(N) deleting of random element
+        O(N) reversal
+
+    - Stack: LIFO principle
+        O(1) PUSH, POP, SIZE, ISEMPTY, ISFULL, SIZE  (PEEK)
+
+    - Queue: FIFO add to end, remove from top ?
+        O(1) ENQUEUE(add), DEQUEUE(rem), ISEMPTY, ISFULL
+        O(N) SPACE complexity 
+
+Data Structures & Algorithms in Python: Implementing data structures    Done
+
+
+Data Structures & Algorithms in Python: Sorting Algorithms  Done
+    - Selection sort
+        O(N2)  find smallest, get into first pos, re-iterate
+
+    - Bubble sort
+        O(N2) biggest element swapped to the right place of array
+
+    - Insertion sort
+        O(N2) compare with prev element, move to left if less (dynamical sorted sublist)
+
+    - Shell sort
+        O(N)<-->O(N2) Divide to sublists, use insertion sort for each sublist, then insertion sort
+        on whole list created from sublists
+
+    - Merge sort
+        O(nlogn) List broken into smaller and smaller resursively, then merge back smallest
+        sublists. Recursion algorithm. 
+
+    - Quick sort  (binary division sort)
+        O(nlogn) Pivot value, all elements less them pivot got to left most place, larger
+        pivot got to right 
+
+
+Data Structures & Algorithms in Python: Trees & Graphs   Done
+    -  Binary search: 
+        O(log n)  take index in middle of sorted, all left are less, all right are larger
+
+    - Binary tree: non linear structure
+        each node: 0, 1 or 2 children
+        root, edge (2 adj: parent and child),  
+        leaf (no children), 
+        sibling node (same parents)
+        root: ancestor 
+
+    - Binary ordered tree:  left branch , all less root, right branch all larger then root
+
+    - Balanced tree: when number of elements in left and right about the same
+
+    - Min value: left most value in tree.
+    - Maximum depth: max distance from the root
+    - Sum path: sum of all node values in path
+    - Breadth first / Depth first traversal
+    - Graph
+
+Data Structures & Algorithms in Python: Implementing trees      Opt
+Data Structures & Algorithms in Python: Implementing sorting    Opt
+
+
 
 Socket Programming in Python: Introduction
 Socket Programming in Python: Advanced Topics

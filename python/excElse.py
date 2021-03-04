@@ -20,7 +20,7 @@ class   Setter(object):
 
 try:
     zz = Setter.getKey_1()
-    pwd='00000'
+    pwd='12345'
     Setter.setKey_1(pwd)
    # pwd='12345'
    # Setter.setKey_1(pwd)

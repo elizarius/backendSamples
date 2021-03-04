@@ -136,7 +136,7 @@ def redirects():
         pprint(red.is_permanent_redirect)
     print(' Final Redirected URL:  {}'.format(resp.url))
     pprint(resp.is_redirect)
-    # Note: 
+    # Note:
     #   - allow_redirect=true, false to get correct status code.
     #   - timeout = xx in req , to limit time and this raises ConnectionError exception
 
