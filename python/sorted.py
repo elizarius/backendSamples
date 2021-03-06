@@ -1,13 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import subprocess
 import os
 
-tmp_path = '/home/ealexel/samples/pythonExample'
-src_pattern = 'ex1'
+tmp_path = '/home/aelz/repa/backendSamples/python'
 files = os.listdir(tmp_path)
-print "Unsorted files: {} ".format(files)
+print('Unsorted files: {}'.format(files))
 
-print "**********************************"
-print " "
+print('**********************************\n')
 files = sorted(os.listdir(tmp_path))
-print "Sorted files: {} ".format(files)
+print('Sorted files: {}'.format(files))
