@@ -108,11 +108,14 @@ Data Structures & Algorithms in Python: Implementing trees      Opt
 Data Structures & Algorithms in Python: Implementing sorting    Opt
 
 
-Socket Programming in Python: Introduction  Done
-    - write demo with cli and different options 
-    - write example to transfer data from client to server
-
-Socket Programming in Python: Advanced Topics
+Socket Programming in Python: Introduction      Done
+Socket Programming in Python: Advanced Topics   Done
+    - transfer different python objects
+    - transfer files: text, image
+    - build chats
+    - subscribe to RSS
+    - sockets in blocking / non blocking mode
+    - UDP sockets
 
 
 Python Concurrent Programming: Introduction to CR
@@ -132,6 +135,7 @@ Building Web Apps Using Django: Generic Views
 Python: Web Application Development
 
 Flask in Python: User Interactions in Flask…
+
 
 Python for Data Science – Complex Data Engineering in…
 Python Applications

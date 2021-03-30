@@ -44,6 +44,7 @@ def start_server():
             client, address = s.accept()
             print(f'*** Connection to {address} established ***')
             print(f'*** Client object {client} ***')
+
             msg = client.recv(1024)
             obj_type = msg.decode('utf-8')
 
@@ -61,6 +62,14 @@ def start_server():
                 pickled_object = pickle.dumps(custom_object)
                 print(f'*** Seialized object type:  {type(pickled_object)} ***')
                 client.send(pickled_object)
+
+            if obj_type == 'text':
+                custom_file = open('server_files/sample_100k.txt', 'rb' )
+                custom_data = custom_file.read(40960)
+                while (custom_data):
+                    client.send(custom_data)
+                    custom_data = custom_file.read(40960)
+                print('Custom file sent successfully')   
 
         except socket.timeout as e: 
             print(f'Exception appeared: {e}')
@@ -112,7 +121,7 @@ def receive_class_object():
         time.sleep(1)
 
         while True:
-            msg = s.recv(2048)
+            msg = s.recv(1024)
             if not msg:
                 print('*** No messages from server')
                 break
@@ -125,6 +134,28 @@ def receive_class_object():
             print(f'Product ID    : {unplickled.pid}')
             print(f'Product Name  : {unplickled.pname}')
             print(f'Product Price : {unplickled.pprice}')
+
+
+def receive_text_file():
+    print('*** Creating client ***')
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((socket.gethostname(), 4571))
+        msg = 'text'
+        s.sendall(msg.encode())
+        time.sleep(1)
+
+        custom_file = open('client_files/received_file.txt', 'wb')
+        while True:
+            data = s.recv(40960)
+            if not data:
+                print('*** No messages from server')
+                break
+
+            custom_file.write(data)
+            print('Batch of data written to file...')
+        
+        custom_file.close()
+
 
 
 def parse_arguments():
@@ -147,6 +178,10 @@ def parse_arguments():
     parser.add_argument('-l', '--hosts', action='store_true', required=False,
                         help='Print hosts info')
 
+    parser.add_argument('-t', '--text', action='store_true', required=False,
+                        help='Client requests and receives large text file')
+
+
     args = parser.parse_args()
     return parser, args
 
@@ -167,6 +202,9 @@ def main():
     if args.client:     simple_client()
     if args.dic:        receive_dictionary_object()
     if args.product:    receive_class_object()
+    if args.text:       receive_text_file()
+
+# Note: transfer of images is same. In addition, PIL library cna be used
 
 if __name__ == "__main__":
     main()
