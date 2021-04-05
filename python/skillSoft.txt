@@ -107,7 +107,6 @@ Data Structures & Algorithms in Python: Trees & Graphs   Done
 Data Structures & Algorithms in Python: Implementing trees      Opt
 Data Structures & Algorithms in Python: Implementing sorting    Opt
 
-
 Socket Programming in Python: Introduction      Done
 Socket Programming in Python: Advanced Topics   Done
     - transfer different python objects
@@ -117,27 +116,24 @@ Socket Programming in Python: Advanced Topics   Done
     - sockets in blocking / non blocking mode
     - UDP sockets
 
-
-Python Concurrent Programming: Introduction to CR
-Python Concurrent Programming: Asynchronous Executions…
-Python Concurrent Programming: Multithreading in Python
-Python Concurrent Programming: Multiprocessing in Python
+Python Concurrent Programming: Introduction to CR       Done
+Python Concurrent Programming: Multithreading           IP
+Python Concurrent Programming: Multiprocessing          
+Python Concurrent Programming: Asynchronous Executions
 
 Python: Data Bases working
 
+Python 3: Python - Introduction to NumPy for…
+
 Python Unit Testing: Testing Python Code Using pytest
 
-Python 3: Python - Introduction to NumPy for…
 
 Building Web Apps Using Django: Implementing Login &…
 Building Web Apps Using Django: Generic Views
-
 Python: Web Application Development
-
 Flask in Python: User Interactions in Flask…
 
-
-Python for Data Science – Complex Data Engineering in…
 Python Applications
-Python for Data Science – Introduction to Python for…
 Python: Data Science Fundamentals
+Python for Data Science – Introduction to Python for…
+Python for Data Science – Complex Data Engineering in…
