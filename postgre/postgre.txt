@@ -1,4 +1,25 @@
 
+**** Postgresql integration with docker and create first DB ****
+
+0.  Postgresql documentation:
+
+    https://www.postgresql.org/docs/9.4/static/app-postgres.html
+    https://www.postgresql.org/
+
+1.  Wildfly docker integrated with Postgresql server:
+
+    https://hub.docker.com/r/rackerlabs/wildfly-postgres/~/dockerfile/
+    https://github.com/nkrendel/wildfly-docker
+
+2.  Postgresql docker
+    https://github.com/sameersbn/docker-postgresql
+
+3.  Postgresql deploying and running on docker, examples
+    https://docs.docker.com/engine/examples/postgresql_service/
+    https://blog.danivovich.com/2015/06/29/running-postgres-in-docker/
+    https://clusterhq.com/2016/01/08/tutorial-flocker-volume-driver-postgres/
+
+
 https://hub.docker.com/_/postgres/
 
 docker pull postgres
@@ -12,5 +33,44 @@ docker exec -it some-postgres bash
 
 ** Connect with psql clinet **
 psql -h localhost -p 5432 -U postgres -W
+
+
+OR
+
+psql  -U postgres
+
+
+OR
+
+when start docker:
+-----------------
+docker run --name postgresql -itd --restart always --env 'DB_USER=fr_user' --env 'DB_PASS=fraud'  --env 'DB_NAME=fraud_db' sameersbn/postgresql:9.6-2
+
+docker exec -it postgresql sudo -u postgres psql fraud_db
+
+create schema subsc_act;
+CREATE TABLE subsc_act.subcriber_info (
+    imsi BIGINT NOT NULL,
+    msisdn TEXT,
+    PRIMARY KEY (imsi));
+
+
+
+connect to DB from commandline
+------------------------------
+
+su - postgres -u
+source /opt/rh/rh-postgresql96/enable
+psql -d notifierdb
+
+**show db tables **
+\d streamer_streamer
+
+
+INSERT INTO streamer_streamer VALUES ( nextval('streamer_streamer_id_seq'::regclass) ,'MAJOR', TRUE, '2017-03-03',
+'2017-02-02', 'aelz_origin', 222, 'SPEC_Problem', 'ADDIT TEXT OF SPEC PROBLEM');
+
+*** count number records in table:
+SELECT COUNT(*) FROM TABLE_NAME;
 
 

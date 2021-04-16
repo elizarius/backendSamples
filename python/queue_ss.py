@@ -3,7 +3,6 @@
 
 from queue import Queue
 
-
 print('** 1.  Built in queue demo **')
 olympics =Queue(5)
 olympics.put('US')
@@ -27,7 +26,7 @@ print('\n** 3.  Linked list  **')
 
 class Node:
     """
-    A single-linked node 
+    A single-linked node
     """
     def __init__(self, dataval=None, nextval=None):
         self.dataval = dataval
@@ -39,7 +38,7 @@ class Node:
 
 class LinkedList:
     """
-    A single-linked list 
+    A single-linked list
     """
     def __init__(self):
         self.head = None
@@ -47,12 +46,12 @@ class LinkedList:
     def prepend(self, dataval):
         """ Insert element in beg of the list O(1) """
         self.head = Node(dataval=dataval, nextval=self.head)
-        
+
     def append(self, dataval):
         """ Insert element at the end of the list O(n) """
         if not self.head:
             self.head = Node(dataval=dataval)   # no nextval
-        
+
         curr = self.head
 
         while curr.nextval:

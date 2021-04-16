@@ -17,19 +17,19 @@ Conditional Statements & Loops: Advanced Operations     Opt
 
 Python Requests: HTTP Requests with Python              Done
 
-Python Classes & Inheritance: Working with Inheritance  Done 
+Python Classes & Inheritance: Working with Inheritance  Done
 
 Python Classes & Inheritance: Advanced Functionality    Done
     - overlapped with prev courses, examples:
     - builtin types (properties)
-    - custom implementation of properties 
+    - custom implementation of properties
     - iterators
     - class properties
-    - staticmethod, classmethod, 
+    - staticmethod, classmethod,
     - abstract class, abstract method
 
 Advanced Python Topics: File Operations in Python       Opt
-    - examples of jscon and csv files parsing
+    - examples of json and csv files parsing
 
 Advanced Python Topics: Exceptions & Command Line…      Done
 Advanced Python Topics: Python Modules & VirtuaL ENVS   The same as above "Classes and modules"
@@ -55,10 +55,9 @@ Data Structures & Algorithms in Python: Fundamental…    Done
 
     - Queue: FIFO add to end, remove from top ?
         O(1) ENQUEUE(add), DEQUEUE(rem), ISEMPTY, ISFULL
-        O(N) SPACE complexity 
+        O(N) SPACE complexity
 
 Data Structures & Algorithms in Python: Implementing data structures    Done
-
 
 Data Structures & Algorithms in Python: Sorting Algorithms  Done
     - Selection sort
@@ -76,23 +75,23 @@ Data Structures & Algorithms in Python: Sorting Algorithms  Done
 
     - Merge sort
         O(nlogn) List broken into smaller and smaller resursively, then merge back smallest
-        sublists. Recursion algorithm. 
+        sublists. Recursion algorithm.
 
     - Quick sort  (binary division sort)
         O(nlogn) Pivot value, all elements less them pivot got to left most place, larger
-        pivot got to right 
+        pivot got to right
 
 
 Data Structures & Algorithms in Python: Trees & Graphs   Done
-    -  Binary search: 
+    -  Binary search:
         O(log n)  take index in middle of sorted, all left are less, all right are larger
 
     - Binary tree: non linear structure
         each node: 0, 1 or 2 children
-        root, edge (2 adj: parent and child),  
-        leaf (no children), 
+        root, edge (2 adj: parent and child),
+        leaf (no children),
         sibling node (same parents)
-        root: ancestor 
+        root: ancestor
 
     - Binary ordered tree:  left branch , all less root, right branch all larger then root
 
@@ -104,8 +103,6 @@ Data Structures & Algorithms in Python: Trees & Graphs   Done
     - Breadth first / Depth first traversal
     - Graph
 
-Data Structures & Algorithms in Python: Implementing trees      Opt
-Data Structures & Algorithms in Python: Implementing sorting    Opt
 
 Socket Programming in Python: Introduction      Done
 Socket Programming in Python: Advanced Topics   Done
@@ -116,16 +113,42 @@ Socket Programming in Python: Advanced Topics   Done
     - sockets in blocking / non blocking mode
     - UDP sockets
 
-Python Concurrent Programming: Introduction to CR       Done
-Python Concurrent Programming: Multithreading           IP
-Python Concurrent Programming: Multiprocessing          
-Python Concurrent Programming: Asynchronous Executions
+
+Python Concurrent Programming: Introduction to CR
+ - Python Global Interpreter Lock (GIL)
+ - Python interpretor is working in one thread (GIL) --> multithread tasks are:
+    - threats on single CPU Core
+    - concurent but not parallel !!!
+    - processes are on different cpu cores !!! (Multiprocessing)
+    - threads are good for i/o and network bound tasks
+
+-  Data structures for Concurrent Programming:
+    - Threads:
+        - Queue (FIFO)
+        - LifoQueue
+        - PriorityQueue
+    - Processes:
+        - Queue
+        - Pipe
+
+    - Process(Thread) Pool =  Set of workers <= N of CPU
+      Tasks stay in queue and wait, when worker in pool released
+
+
+Python Concurrent Programming: Multithreading in Python     Done
+Python Concurrent Programming: Multiprocessing in Python    IP
+
+Python Concurrent Programming: Asynchronous Executions…
 
 Python: Data Bases working
 
 Python 3: Python - Introduction to NumPy for…
 
+Data Structures & Algorithms in Python: Implementing trees      Opt
+Data Structures & Algorithms in Python: Implementing sorting    Opt
+
 Python Unit Testing: Testing Python Code Using pytest
+
 
 
 Building Web Apps Using Django: Implementing Login &…
@@ -133,6 +156,7 @@ Building Web Apps Using Django: Generic Views
 Python: Web Application Development
 Flask in Python: User Interactions in Flask…
 
+Python for Data Science – Complex Data Engineering in…
 Python Applications
 Python: Data Science Fundamentals
 Python for Data Science – Introduction to Python for…
