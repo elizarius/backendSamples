@@ -1,11 +1,11 @@
 import threading
 import time
-from pprint import pprint 
+from pprint import pprint
 
 def threads_info():
     print(f'Number of threads: {threading.active_count()} \n')
     print(f'Threads enumerate: \n {threading.enumerate()} \n')
-    
+
     print(f'Current thread: {threading.current_thread()} \n')
 
 def demo_print():
@@ -40,7 +40,7 @@ def two_deposit_threads(dep_amount):
     t2.start()
     t1.join()
     t2.join()
-   
+
 
 
 x= threading.Thread(name="AELZ_1", target = demo_print)

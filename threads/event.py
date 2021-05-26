@@ -68,13 +68,13 @@ counter = 1
 more_to_come = True
 
 producer_thread = threading.Thread(target=produce)
-consumer_one_thread = threading.Thread(target=consume, 
+consumer_one_thread = threading.Thread(target=consume,
                                         name="News Site One",)
 consumer_two_thread = threading.Thread(target=consume,
                                         name="News Site Two")
 consumer_three_thread = threading.Thread(target=consume,
                                         name="News Site Three")
-   
+
 threads = [ producer_thread,
             consumer_one_thread,
             consumer_two_thread,
