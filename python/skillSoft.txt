@@ -150,7 +150,6 @@ Data Structures & Algorithms in Python: Implementing sorting    Opt
 Python Unit Testing: Testing Python Code Using pytest
 
 
-
 Building Web Apps Using Django: Implementing Login &…
 Building Web Apps Using Django: Generic Views
 Python: Web Application Development
