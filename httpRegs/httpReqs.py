@@ -48,7 +48,7 @@ def head_request():
     print(httpstatus(resp.status_code))
     pprint(resp.content)
     pprint(resp.headers)
-    
+
     print('\n***** HEAD request 2 ***')
     resp = requests.head('http://alexander-tikhonov.ru')
     print(httpstatus(resp.status_code))

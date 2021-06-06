@@ -136,29 +136,32 @@ Python Concurrent Programming: Introduction to CR
 
 
 Python Concurrent Programming: Multithreading in Python     Done
-Python Concurrent Programming: Multiprocessing in Python    IP
+Python Concurrent Programming: Multiprocessing in Python    Done
     - queues, stacks --> thread safe 
     - Global variables and data can be shared between threads but not pocesses.
+    - Global variables can be sennt to process as arg
+    - Shared memory can be used between processes
+    - Pipes used to sync / send info between processes
 
 
-
-Python Concurrent Programming: Asynchronous Executions…
-
-
+Python Concurrent Programming: Asynchronous Executions      Done
 
 Python: Data Bases working
+
+
+Building Web Apps Using Django: Implementing Login &…
+Building Web Apps Using Django: Generic Views
+K3s use with Django, simple test application
+
 
 Python 3: Python - Introduction to NumPy for…
 
 Data Structures & Algorithms in Python: Implementing trees      Opt
 Data Structures & Algorithms in Python: Implementing sorting    Opt
 
+
+
 Python Unit Testing: Testing Python Code Using pytest
-
-
-Building Web Apps Using Django: Implementing Login &…
-Building Web Apps Using Django: Generic Views
-
 
 Python: Web Application Development
 Flask in Python: User Interactions in Flask…
