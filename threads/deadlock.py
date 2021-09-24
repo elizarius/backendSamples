@@ -1,6 +1,6 @@
 import threading
 import time
-from pprint import pprint 
+from pprint import pprint
 
 
 data_one = 3
@@ -67,7 +67,7 @@ def prepare_order():
     global order_num
     time.sleep(3)
     order_num += 1
-    print ("Preparing order number", order_num) 
+    print ("Preparing order number", order_num)
     semaphore.release()
 
 

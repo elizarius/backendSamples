@@ -15,7 +15,7 @@ async def main():
 
     await task1
     await task2
-    
+
     print('Control returned to main')
     print('Total time taken:', time.time() - start)
 

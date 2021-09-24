@@ -33,6 +33,6 @@ p.join()
 # pool distribute results between different processes
 print (result)
 
-# See training on performance benchmarks examples when use and not pools 
+# See training on performance benchmarks examples when use and not pools
 # Process pools are extremally useful with several CPUs HW architecture
 # ThreadPools  (futures) arew useful when IO tasks or long duration async tasks

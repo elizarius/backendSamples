@@ -4,10 +4,10 @@ from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import  as_completed
 import urllib.request
 
-# See training on performance benchmarks examples when use and not pools 
+# See training on performance benchmarks examples when use and not pools
 # Process pools are extremally useful with several CPUs HW architecture
 # ThreadPools are useful when IO tasks or network bound (latency) tasks !!!!!
-# See example on cpu bound tasks in training course 
+# See example on cpu bound tasks in training course
 
 
 url_list = ['http://www.loonycorn.com/',
@@ -26,7 +26,7 @@ def main_processpool():
 
     with ProcessPoolExecutor(max_workers=7) as executor:
         future_to_page = {executor.submit(url_loader, url, 60): url for url in url_list}
-        
+
         print('Process pool future benchmarks ')
         for future in as_completed(future_to_page):
             url = future_to_page[future]
@@ -52,4 +52,4 @@ def main_threatpool():
 
 main_processpool()
 main_threatpool()
-   
+

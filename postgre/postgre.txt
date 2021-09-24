@@ -58,14 +58,18 @@ CREATE TABLE subsc_act.subcriber_info (
 
 connect to DB from commandline
 ------------------------------
+psql -U postgres
 
 su - postgres -u
 source /opt/rh/rh-postgresql96/enable
 psql -d notifierdb
 
-**show db tables **
-\d streamer_streamer
+**show all db dtaabases and  tables **
+\list                   # list of all DBs
+\c user_db              # connect to specific db
+\d db1        # dump relation
 
+select * from db1;
 
 INSERT INTO streamer_streamer VALUES ( nextval('streamer_streamer_id_seq'::regclass) ,'MAJOR', TRUE, '2017-03-03',
 '2017-02-02', 'aelz_origin', 222, 'SPEC_Problem', 'ADDIT TEXT OF SPEC PROBLEM');
@@ -73,4 +77,8 @@ INSERT INTO streamer_streamer VALUES ( nextval('streamer_streamer_id_seq'::regcl
 *** count number records in table:
 SELECT COUNT(*) FROM TABLE_NAME;
 
+ALTER USER postgres PASSWORD 'custom-pwd';
+
+# acces to schema.table
+select * from tenant34."asset_inventory_interface";
 

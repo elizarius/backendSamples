@@ -34,6 +34,6 @@ print('Task done? :', submitted_job.done())
 print(f'\n\n*** 2.  Using executor function ***')
 square_data = executor_func()
 print(list(square_data))
-   
+
 # Process pools are extremally useful with several CPUs HW architecture
 # ThreadPools  (futures) are useful when IO tasks or long running async tasks
