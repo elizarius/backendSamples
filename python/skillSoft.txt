@@ -149,16 +149,31 @@ AP: check how to use asyncio instead of futures
 
 Python: Data Bases working
 
+
+Django:
+--------
+- serialize    - > to network
+- desereialize  ->  from network to model
+
+
+Building Web Apps Using Django: Building a Basic Website
+- create in virtualenv
+- get is working
+- transfer to kuberentes setup
+
+
 Building Web Apps Using Django: Implementing Login &…
+
 Building Web Apps Using Django: Generic Views
+
 K3s use with Django, simple test application
+
 
 
 Python 3: Python - Introduction to NumPy for…
 
 Data Structures & Algorithms in Python: Implementing trees      Opt
 Data Structures & Algorithms in Python: Implementing sorting    Opt
-
 
 Python: Web Application Development
 Flask in Python: User Interactions in Flask…

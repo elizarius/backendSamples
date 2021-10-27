@@ -76,9 +76,8 @@ INSERT INTO streamer_streamer VALUES ( nextval('streamer_streamer_id_seq'::regcl
 
 *** count number records in table:
 SELECT COUNT(*) FROM TABLE_NAME;
-
 ALTER USER postgres PASSWORD 'custom-pwd';
 
-# acces to schema.table
+# access to schema.table
 select * from tenant34."asset_inventory_interface";
 

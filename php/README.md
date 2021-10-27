@@ -15,7 +15,7 @@ Finally, docker copies everything in src/ inside this repository to the /var/www
 # Setup
 
  - Ensure you have Docker installed
- - `sudo docker build -t docker-php-helloworld .` 
+ - `sudo docker build -t docker-php-helloworld .`
  - `sudo docker run -p 80:80 docker-php-helloworld`
 
 # What You Should See

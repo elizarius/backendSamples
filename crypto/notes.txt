@@ -294,7 +294,7 @@ Chosen Ciphertext Security
 PKE secure implementations: trapdoor functions  && DH
 
 One way function: cannot be inverted without SK (secret key)
-Newer apply trapdoor function  directly to message (m)
+Newer apply trapdoor function directly to message (m)
 
 RSA Rivest, Shamir, Adleman
 
@@ -306,7 +306,7 @@ trapdoor functions (such as RSA)  --> OAEP++ , ISO, SAEP --> SSH , SSL, HTTPS , 
 Diffie-­‐Hellman	 protocol --> el gamal encryption ---> GPG
 
 
->>>>>>> crypto: update resources
+**** crypto: update resources
 Security DH:
 Computational Diffie-­‐Hellman Assumption
 Hash Diffie-­‐Hellman Assumption
@@ -327,7 +327,8 @@ Key Exchange
 ------------
 
 N13 https://shoup.net/, look source codes presented on his site
-=======
+
+
 Basic Key Exchange
 ------------------
 N09 Look traces of DH algorithm (Wireshark)
