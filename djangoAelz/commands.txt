@@ -7,6 +7,7 @@ Creating virtual environment for Django project
  python3 -m venv djangoenv
  source djangoenv/bin/activate
  pip3 install Django
+ pip3 install Django --upgrade
 
  ## create new django project
  django-admin startproject aelz
@@ -14,7 +15,22 @@ Creating virtual environment for Django project
  ##  create django application
  python3 manage.py startapp blog
 
+ # In terms of django project is set of web applications
+
 Running server
 --------------
-
+## manage.py == django-admin (cli)
 python3 manage.py runserver
+
+
+
+Geting objects from model
+--------------------------
+Notification.objects.all()
+Notification.objects.all().values()
+Notification.objects.all().count()
+Notification.objects.filter(
+                    origin=alarm_1['origin'],
+                    notification_id = alarm_1['notification_id'],
+                    time_cleared = alarm_1['time_cleared']).count()
+

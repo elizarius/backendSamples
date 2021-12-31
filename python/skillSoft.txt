@@ -160,6 +160,7 @@ Building Web Apps Using Django: Building a Basic Website
 - create in virtualenv
 - get is working
 - transfer to kuberentes setup
+- create REST project / transfer to kubernetes setup
 
 
 Building Web Apps Using Django: Implementing Login &…

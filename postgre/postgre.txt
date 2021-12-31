@@ -64,7 +64,7 @@ su - postgres -u
 source /opt/rh/rh-postgresql96/enable
 psql -d notifierdb
 
-**show all db dtaabases and  tables **
+**show all db databases and tables **
 \list                   # list of all DBs
 \c user_db              # connect to specific db
 \d db1        # dump relation
