@@ -152,15 +152,14 @@ Python: Data Bases working
 
 Django:
 --------
-- serialize    - > to network
-- desereialize  ->  from network to model
 
-
-Building Web Apps Using Django: Building a Basic Website
+Building Web Apps Using Django: Building a Basic Website    Done
 - create in virtualenv
 - get is working
 - transfer to kuberentes setup
 - create REST project / transfer to kubernetes setup
+
+Building Web Apps Using Django: Templates & User Administration IP
 
 
 Building Web Apps Using Django: Implementing Login &…

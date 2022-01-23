@@ -23,7 +23,6 @@ Running server
 python3 manage.py runserver
 
 
-
 Geting objects from model
 --------------------------
 Notification.objects.all()
@@ -34,3 +33,14 @@ Notification.objects.filter(
                     notification_id = alarm_1['notification_id'],
                     time_cleared = alarm_1['time_cleared']).count()
 
+- serialize    - >  to network
+- desereialize  ->  from network to model
+
+- boilerplate html  Set of predefined html templates for Djnago web development.
+- http://www.initializr.com/  basic html  boilerplates
+
+
+
+Django templates
+----------------
+https://djangocentral.com/static-assets-in-django/
