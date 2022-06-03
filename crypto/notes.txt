@@ -15,8 +15,10 @@
 
 - Prime:        prostoe tchislo
 
+
+
 2.  Symmetric encryption
-************************
+*************************
 
 E, D:   cipher
 k:      secret key (e.g. 128 bits)
@@ -77,7 +79,7 @@ eStream (2008) -> SALSA20 ->  seed x R(nonce)
 Page 16  OTP review , very short !!!!!!!
 
 
-3.  Block ciphers --> CONFIDENTIALITY
+ Block ciphers --> CONFIDENTIALITY  (encryption)
 *************************************
 
 PRF:    pseudo random function
@@ -99,73 +101,8 @@ CCA     Chosen ciphertext attack
 CTR     COUNTER
 
 
-4.  Integrity  --> INTEGRITY
-*****************************
 
-MAC	message authentication code
-	Attacker -> Chosen message attack
-
-1)
-CBC-MAC / NMAC	Banking (ANSI X9.9, X9.19 ...) / sequential
-ECBC	Encrypted CBC-MAC -> used in  AES, 802.11i
-
-CMAC    NIST standard on CBC-MAC,recommended to use as CBC mac
---------------------------------------------------------------
-
-
-3)
-PMAC			Parallel MAC / parallel
-One time MAC	<==> One time pad , executed for each message
-CW-MAC          Carter -Wegman MAC	combination PRF + one time Mac
--------------------------------------------------
-
-
-2)
-NMAC	Nested MAC	/ sequential
-NMAC    basis for HMAC
-
-
-Carter-­‐Wegman	 MAC    randomized MAC, built from one time MAC
-
-
-Hash-function --> m1 != m2  H(m1)=H(m2), with very low Advantage, close to 0
-Collission resistance: read-only public spaces  (see 06-coll...pdf)
-
-
-Merkle- Damgard paradigm:
- Init vector(IV)
- h	block compression function
- H	Final tag
-
- ******** if  "h" is collision resistant then "H" is so.
-
-Goal: construct compressed function (h)
-
-F.i.
-
-SHA256:
-    - Merkle-Damgard function (H)
-    - Davis-Meyer compress function (h)
-    - Block-cipher: SHACAL-2
-    - mi size = 512 bit
-
-------------------------------------------------------------------------------
-
-4)
-HMAC	Hash-MAC (SSL, ipsec, ssh)
-Timing attack
-
-
-Crypto python resources:
-https://docs.python.org/3/library/crypto.html
-
-https://www.dlitz.net/software/python-pbkdf2/
-
-# Getting of passsword wwithout echo function
-https://docs.python.org/3.6/library/getpass.html
-
-
-5.  Authenicated Encryption  --> TAMPERING
+3.  Authenicated Encryption  --> TAMPERING
 ******************************************
 
 Bad	example: CBC with rand.	IV does	not	provide	AE
@@ -226,10 +163,92 @@ FPE Format preserving encryption	- credit cards -> exncrypted result looks like 
 
 PBKDF:  password based KDF, see page 7
 KDF     key derivation function
+ECB     Electronic Codeboook   outdated and not recommended
 
 
 
-6.  Basic key exchange
+
+
+4.  Integrity  --> INTEGRITY
+*****************************
+
+
+Hash-function --> m0 != m2  H(m1)=H(m2), with very low Advantage, close to 0
+Collission resistance: read-only public spaces  (see 05-coll...pdf)
+
+
+MAC	message authentication code -->  HASH  function with public key
+On reception MAC tag calculated and compared with received
+
+Key + Message --> MAC  --> authenticaiton tag.
+
+Attacker -> Chosen message attack
+
+SHAKE:  new encryption function (extendable /variable length of hash function)
+
+MD5 encryption depreciated
+
+
+1)
+CBC-MAC / NMAC	Banking (ANSI X9.9, X9.19 ...) / sequential
+ECBC	Encrypted CBC-MAC -> used in  AES, 802.11i
+
+CMAC    NIST standard on CBC-MAC,recommended to use as CBC mac
+--------------------------------------------------------------
+
+
+3)
+PMAC			Parallel MAC / parallel
+One time MAC	<==> One time pad , executed for each message
+CW-MAC          Carter -Wegman MAC	combination PRF + one time Mac
+-------------------------------------------------
+
+
+2)
+NMAC	Nested MAC	/ sequential
+NMAC    basis for HMAC
+
+
+Carter-­‐Wegman	 MAC    randomized MAC, built from one time MAC
+
+
+Merkle- Damgard paradigm:
+ Init vector(IV)
+ h	block compression function
+ H	Final tag
+
+ ******** if  "h" is collision resistant then "H" is so.
+
+Goal: construct compressed function (h)
+
+F.i.
+
+SHA256:
+    - Merkle-Damgard function (H)
+    - Davis-Meyer compress function (h)
+    - Block-cipher: SHACAL-2
+    - mi size = 512 bit
+
+------------------------------------------------------------------------------
+
+4)
+HMAC	Hash-MAC (SSL, ipsec, ssh)
+Timing attack
+
+
+Crypto python resources:
+https://docs.python.org/3/library/crypto.html
+
+https://www.dlitz.net/software/python-pbkdf2/
+
+# Getting of passsword wwithout echo function
+https://docs.python.org/3.6/library/getpass.html
+
+
+
+
+
+5.  Basic key exchange
 ***********************
 TTP     trust 3rd party
 
@@ -287,7 +306,7 @@ The	repeated squaring alg  to calculate g^x fast
 
 
 
-7.  Public key exchange
+6.  Public key exchange
 ************************
 
 Chosen Ciphertext Security
@@ -308,8 +327,8 @@ Diffie-­‐Hellman	 protocol --> el gamal encryption ---> GPG
 
 **** crypto: update resources
 Security DH:
-Computational Diffie-­‐Hellman Assumption
-Hash Diffie-­‐Hellman Assumption
+Computational Diffie-Hellman Assumption
+Hash Diffie-Hellman Assumption
 Interactive Diffie-­‐Hellman
 
 Variants:  twin ElGamal	  ---> better security
@@ -363,3 +382,12 @@ https://www.pycryptodome.org/en/latest/
 https://cryptography.io
 https://github.com/google/tink/blob/master/docs/PYTHON-HOWTO.md
 https://crackstation.net/
+
+
+-------------------------------------------
+Real-World cryptography training (Ericsson)
+-------------------------------------------
+
+- 5G and Ericsson focused
+
+

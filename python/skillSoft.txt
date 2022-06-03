@@ -162,7 +162,7 @@ Building Web Apps Using Django: Building a Basic Website    Done
 Building Web Apps Using Django: Templates & User Administration IP
 
 
-Building Web Apps Using Django: Implementing Login &…
+Building Web Apps Using Django: Implementing Login
 
 Building Web Apps Using Django: Generic Views
 
