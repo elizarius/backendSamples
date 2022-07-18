@@ -387,7 +387,6 @@ https://crackstation.net/
 -------------------------------------------
 Real-World cryptography training (Ericsson)
 -------------------------------------------
-
 - 5G and Ericsson focused
 
 
