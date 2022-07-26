@@ -64,7 +64,7 @@ Data Structures & Algorithms in Python: Sorting Algorithms  Done
         O(N2)  find smallest, get into first pos, re-iterate
 
     - Bubble sort
-        O(N2) biggest element swapped to the right place of array
+        O(N) --- O(N2) biggest element swapped to the right place of array
 
     - Insertion sort
         O(N2) compare with prev element, move to left if less (dynamical sorted sublist)
@@ -84,7 +84,9 @@ Data Structures & Algorithms in Python: Sorting Algorithms  Done
 
 Data Structures & Algorithms in Python: Trees & Graphs   Done
     -  Binary search:
-        O(log n)  take index in middle of sorted, all left are less, all right are larger
+        O(log n)  take index in middle of sorted, all left are less, all right are larger.
+        BS working on sorted array. 
+
 
     - Binary tree: non linear structure
         each node: 0, 1 or 2 children
@@ -147,39 +149,26 @@ Python Concurrent Programming: Multiprocessing in Python    Done
 Python Concurrent Programming: Asynchronous Executions      Done
 AP: check how to use asyncio instead of futures
 
-Python: Data Bases working
+
+Data Structures & Algorithms in Python: Implementing sorting    Done
+Data Structures & Algorithms in Python: Implementing
+Trees & Graphs                                              IP
 
 
 Django:
 --------
-
 Building Web Apps Using Django: Building a Basic Website    Done
 - create in virtualenv
-- get is working
+
+Building Web Apps Using Django: Templates & User Administration IP
+Building Web Apps Using Django: Implementing Login
+Building Web Apps Using Django: Generic Views
+
+
+K3s use with Django, simple test application
 - transfer to kuberentes setup
 - create REST project / transfer to kubernetes setup
 
-Building Web Apps Using Django: Templates & User Administration IP
 
+Python 3: Python - Introduction to NumPy for
 
-Building Web Apps Using Django: Implementing Login
-
-Building Web Apps Using Django: Generic Views
-
-K3s use with Django, simple test application
-
-
-
-Python 3: Python - Introduction to NumPy for…
-
-Data Structures & Algorithms in Python: Implementing trees      Opt
-Data Structures & Algorithms in Python: Implementing sorting    Opt
-
-Python: Web Application Development
-Flask in Python: User Interactions in Flask…
-
-Python for Data Science – Complex Data Engineering in…
-Python Applications
-Python: Data Science Fundamentals
-Python for Data Science – Introduction to Python for…
-Python for Data Science – Complex Data Engineering in…

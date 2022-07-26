@@ -40,7 +40,6 @@ Notification.objects.filter(
 - http://www.initializr.com/  basic html  boilerplates
 
 
-
 Django templates
 ----------------
 https://djangocentral.com/static-assets-in-django/
