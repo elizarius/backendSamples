@@ -39,7 +39,6 @@ OR
 
 psql  -U postgres
 
-
 OR
 
 when start docker:
@@ -53,7 +52,6 @@ CREATE TABLE subsc_act.subcriber_info (
     imsi BIGINT NOT NULL,
     msisdn TEXT,
     PRIMARY KEY (imsi));
-
 
 
 connect to DB from commandline
