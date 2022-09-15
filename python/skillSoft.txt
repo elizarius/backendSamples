@@ -85,7 +85,7 @@ Data Structures & Algorithms in Python: Sorting Algorithms  Done
 Data Structures & Algorithms in Python: Trees & Graphs   Done
     -  Binary search:
         O(log n)  take index in middle of sorted, all left are less, all right are larger.
-        BS working on sorted array. 
+        BS working on sorted array.
 
 
     - Binary tree: non linear structure
@@ -152,24 +152,17 @@ AP: check how to use asyncio instead of futures
 
 Data Structures & Algorithms in Python: Implementing sorting    Done
 Data Structures & Algorithms in Python: Implementing
-Trees & Graphs                                              IP
+Trees & Graphs                                                  Done
 
 
-Django:
+Django: optional if  required to use Django templates.
 --------
 Building Web Apps Using Django: Building a Basic Website    Done
 - create in virtualenv
 
-Building Web Apps Using Django: Templates & User Administration IP
-
+Building Web Apps Using Django: Templates & User Administration
 Building Web Apps Using Django: Implementing Login
 Building Web Apps Using Django: Generic Views
-
-
-K3s use with Django, simple test application
-- transfer to kuberentes setup
-- create REST project / transfer to kubernetes setup
-
 
 Python 3: Python - Introduction to NumPy for
 

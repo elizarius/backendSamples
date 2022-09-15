@@ -30,11 +30,13 @@ class Node:
     
     def print_tree(self):
         if self.left:
+            print('left') 
             self.left.print_tree()
         
         print(self.val)
 
         if self.right:
+            print('right')
             self.right.print_tree()
 
 # Main BST operations
@@ -44,10 +46,10 @@ def insert(head, node):
         return node
     if node.get_value() <= head.get_value():
         head.set_left_child(insert(head.get_left_child(), node))
-        print ('AELZ_01 set LEFT child for head::node {}::{}'.format( head.get_value(), node.get_value()))
+        print ('AELZ_01 set LEFT child for head::node {}::{}'.format(head.get_left_child().get_value(), node.get_value()))
     else:
         head.set_right_child(insert(head.get_right_child(), node))
-        print ('AELZ_02 set RIGHT child for head::node {}::{}'.format(head.get_value(), node.get_value()))
+        print ('AELZ_02 set RIGHT child for head::node {}::{}'.format(head.get_right_child().get_value(), node.get_value()))
 
     
     return head
@@ -124,40 +126,34 @@ def breadth_first(node):
         path.append(current.val)
         if current.get_left_child() != None:
             queue.enqueue(current.get_left_child())
+            print('AELZ_03  enq left child  {}'.format(current.get_left_child().get_value()))
+          
         if current.get_right_child() != None:
             queue.enqueue(current.get_right_child())
+            print('AELZ_04  enq right child  {}'.format(current.get_right_child().get_value()))
+
     return path
 
 if __name__ == '__main__':
 
-    A = Node(45)
-    B = Node(2)
-    C = Node(33)
-    D = Node(54)
-    E = Node(25)
-    F = Node(68)
-    G = Node(72)
-    H = Node(81)
-    I = Node(23)
-   
-
     # Create root / head 
-    head = insert(None, E)
-    insert(head, B)
-    insert(head, A)
+    head = insert(None, Node(25))
+    insert(head, Node(2))
+    insert(head, Node(45))
  
     ''' following is the tree after above statement
         25
       /   \
      2    45'''
     
-    insert(head, C)
-    insert(head, D)
-    insert(head, F)
-    insert(head, G)
-    insert(head, H)
-    insert(head, I)
+    insert(head, Node(33))
+    insert(head, Node(54))
+    insert(head, Node(68))
+    insert(head, Node(72))
+    insert(head, Node(81))
+    insert(head, Node(23))
     head.print_tree()
+
 
     ''' 
            25
@@ -181,4 +177,4 @@ if __name__ == '__main__':
     print(max_value(head))
 
     print('\n Breadth First Traversal *****')
-    print(breadth_first(E))
+    print(breadth_first(head))

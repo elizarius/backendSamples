@@ -79,3 +79,10 @@ ALTER USER postgres PASSWORD 'custom-pwd';
 # access to schema.table
 select * from tenant34."asset_inventory_interface";
 
+
+Troubleshooting
+---------------
+
+- flows/adp_pg.txt
+- transcation log corruption (could not locate a valid checkpoint record)
+ https://stackoverflow.com/questions/8799474/postgresql-error-panic-could-not-locate-a-valid-checkpoint-record
