@@ -1,0 +1,15 @@
+*** Setup simple redis broker + celery tasks ***
+
+https://www.yippeecode.com/topics/background-task-in-python-celery/
+
+mkdir  -p celery_app/celery_app
+cd celery_app
+python3 -m venv .
+source bin/active
+pip install celery
+pip install redis  (install redis-py)
+
+docker run --rm --name redis-broker -p 6379:6379 -d redis
+celery -A celery_app.app worker -n worker@%n -l INFO -c 1
+python3 kuku.py
+
