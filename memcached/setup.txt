@@ -1,0 +1,15 @@
+** Setup and start memcached on ubuntu
+
+sudo apt install memcached libmemcached-tools
+sudo systemctl status memcached
+vim /etc/memcached.con
+
+** Setup pymemcache
+python3.9 -m venv .
+source bin/activate
+pip3 install pymemcache
+pip3 show
+
+
+
+/usr/sbin/memcached-tool 127.0.0.1:11211 

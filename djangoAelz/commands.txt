@@ -43,3 +43,15 @@ Notification.objects.filter(
 Django templates
 ----------------
 https://djangocentral.com/static-assets-in-django/
+
+
+Django CLI
+----------
+
+python3 manage.py shell
+from notification_inventory.models import Notification
+qs=Notification.objects.all()
+qs.get().additional_text
+qs.get().notification_id
+qs.values()
+

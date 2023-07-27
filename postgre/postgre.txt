@@ -86,3 +86,59 @@ Troubleshooting
 - flows/adp_pg.txt
 - transcation log corruption (could not locate a valid checkpoint record)
  https://stackoverflow.com/questions/8799474/postgresql-error-panic-could-not-locate-a-valid-checkpoint-record
+
+
+
+
+PG_STAT  commands
+-----------------
+
+1. Number of transcactions  overall / per db
+
+
+postgres=# SELECT sum(xact_commit+xact_rollback) FROM pg_stat_database;
+
+   sum
+---------
+ 1077119
+(1 row)
+
+postgres=# SELECT xact_commit+xact_rollback FROM pg_stat_database WHERE datname = 'xxx';
+ ?column?
+----------
+   525471
+(1 row)
+
+
+
+*********************** pg_stat total execution time ******
+
+configure pg_stat in preloaded library:
+https://severalnines.com/blog/how-identify-postgresql-performance-issues-slow-queries/
+
+
+pgbench=# CREATE EXTENSION pg_stat_statements;
+
+CREATE EXTENSION
+
+
+select pg_stat_statements_reset();
+
+
+ SELECT substring(query, 1, 50) AS short_query,
+              round(total_exec_time::numeric, 2) AS total_exec_time,
+              calls,
+              round(mean_exec_time::numeric, 2) AS mean,
+              round((100 * total_exec_time /
+              sum(total_exec_time::numeric) OVER ())::numeric, 2) AS percentage_cpu
+FROM    pg_stat_statements
+ORDER BY total_exec_time DESC
+LIMIT 20;
+
+
+###  detailed view of top requests 
+select userid::regrole, dbid, query
+    from pg_stat_statements
+    order by total_exec_time desc
+    limit 10;
+
