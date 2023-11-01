@@ -31,7 +31,10 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=aelzpassword -d -p 5432:543
 
 docker exec -it some-postgres bash
 
-** Connect with psql clinet **
+** Connect with psql client **
+
+patronictl list
+
 psql -h localhost -p 5432 -U postgres -W
 
 
@@ -90,10 +93,11 @@ Troubleshooting
 
 
 
+
 PG_STAT  commands
 -----------------
 
-1. Number of transcactions  overall / per db
+1. Number of transactions  overall / per db
 
 
 postgres=# SELECT sum(xact_commit+xact_rollback) FROM pg_stat_database;
@@ -104,7 +108,7 @@ postgres=# SELECT sum(xact_commit+xact_rollback) FROM pg_stat_database;
 (1 row)
 
 postgres=# SELECT xact_commit+xact_rollback FROM pg_stat_database WHERE datname = 'xxx';
- ?column?
+
 ----------
    525471
 (1 row)
@@ -130,19 +134,36 @@ select pg_stat_statements_reset();
               calls,
               round(mean_exec_time::numeric, 2) AS mean,
               round((100 * total_exec_time /
-              sum(total_exec_time::numeric) OVER ())::numeric, 2) AS percentage_cpu
+              sum(total_exec_time::numeric) OVER ())::numeric, 2) AS percentage_overall
 FROM    pg_stat_statements
 ORDER BY total_exec_time DESC
 LIMIT 20;
 
 
-###  detailed view of top requests 
+###  detailed view of top requests by total exec time 
 select userid::regrole, dbid, query
     from pg_stat_statements
     order by total_exec_time desc
     limit 10;
 
+    
+select userid::regrole AS UID , dbid AS DBID , substring(query, 1, 200)  AS short_query
+    from pg_stat_statements
+    order by total_exec_time desc
+    limit 10;
+    
 
+###  detailed view of top requests by mean exec time 
+select userid::regrole, dbid, query
+    from pg_stat_statements
+    order by mean_exec_time desc
+    limit 10;
+    
+###  op 10 response-time outliers 
+select userid::regrole, dbid, query
+    from pg_stat_statements
+    order by stddev_exec_time desc
+    limit 10;
 
 
 
@@ -235,3 +256,14 @@ SELECT  table_name as "table name",
     (from_disk + from_cache) as "total hits"
 FROM    (SELECT * FROM all_tables UNION ALL SELECT * FROM tables) a
 ORDER   BY (case when table_name = 'all' then 0 else 1 end), from_disk desc;
+
+
+#  Vertical print in psql: \x\g\x instead of;
+
+ select * from pg_stat_replication\x\g\x
+ 
+ 
+ 
+
+
+
