@@ -85,20 +85,15 @@ select * from tenant34."asset_inventory_interface";
 
 Troubleshooting
 ---------------
-
 - flows/adp_pg.txt
 - transcation log corruption (could not locate a valid checkpoint record)
  https://stackoverflow.com/questions/8799474/postgresql-error-panic-could-not-locate-a-valid-checkpoint-record
-
-
-
 
 
 PG_STAT  commands
 -----------------
 
 1. Number of transactions  overall / per db
-
 
 postgres=# SELECT sum(xact_commit+xact_rollback) FROM pg_stat_database;
 
@@ -140,7 +135,7 @@ ORDER BY total_exec_time DESC
 LIMIT 20;
 
 
-###  detailed view of top requests by total exec time 
+###  detailed view of top requests by total exec time
 select userid::regrole, dbid, query
     from pg_stat_statements
     order by total_exec_time desc

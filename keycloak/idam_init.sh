@@ -80,7 +80,7 @@ resp=$(${curl} -X POST "${KEYCLOAK_ADDR}/auth/realms/${REALM}/protocol/openid-co
          -d "password=${PASSWORD}")
 echo "${resp}" | jq -r .
 ACCESS_TOKEN=$(echo "${resp}" | jq -r .access_token)
- 
+
 ${curl} "${KEYCLOAK_ADDR}/auth/realms/${REALM}/protocol/openid-connect/userinfo" \
      -H "Authorization: Bearer ${ACCESS_TOKEN}" \
          | jq .

@@ -1,19 +1,25 @@
-Postgres HA 
+Postgres HA
 
-Replicaiton types:  	https://hevodata.com/learn/postgres-replication-types/#psql
+Replication types:      https://hevodata.com/learn/postgres-replication-types/#psql
 Streaming replication:	https://www.postgresql.org/docs/16/warm-standby.html#STREAMING-REPLICATION
 
 
 - Synchronous / Asynchronous
 	show synchronous_commit --> sync level (see link above)
-	
+
 - Streaming / Logical
 	show wal_level; --> replica, logical
-	
+
 
 - See replication status, timings and lags:
 select * from pg_stat_replication; --> reply_lag;
 select * from pg_stat_wal_receiver ; -> on SB ?
- 
- patronictl list;
+
+patronictl list;
+
+
+----  Get pg nodes by role --
+
+kubectl get pods -L role | grep postgres
+
 
