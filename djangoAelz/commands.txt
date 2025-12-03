@@ -4,7 +4,7 @@ Creating virtual environment for Django project
  pip3 install virtualenv
  sudo apt install python3.8-venv
  cd djangoAelz
-python3 -m venv  djangoenv
+ python3 -m venv  djangoenv
  source djangoenv/bin/activate
  pip3 install Django
  pip3 install Django --upgrade
