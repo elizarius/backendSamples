@@ -1,11 +1,10 @@
 *** First keycloak samples  ***
 
-1.  Getting started documentaiton
+1.  Start keycloak in docker 
 
-https://hub.docker.com/r/jboss/keycloak/
-https://www.keycloak.org/documentation.html
+https://www.keycloak.org/getting-started/getting-started-docker
 
-docker run -e KEYCLOAK_USER=aelz -e KEYCLOAK_PASSWORD=aelz -p  8080:8080 jboss/keycloak
+
 
 2. Connect when user and realm created:
 

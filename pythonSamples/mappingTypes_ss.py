@@ -51,5 +51,4 @@ if bool(test_dic):
     print('Not Empty dictionary')
 else:
     print('REALLY Empty dictionary')
-
-
+    print(f'kuku={test_dic}')
