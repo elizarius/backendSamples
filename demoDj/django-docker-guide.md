@@ -55,26 +55,9 @@ sudo usermod -aG docker $USER
 docker --version
 ```
 
-### For CentOS/RHEL:
-```bash
-# Install required packages
-sudo yum install -y yum-utils
-
-# Add Docker repository
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-# Install Docker
-sudo yum install docker-ce docker-ce-cli containerd.io
-
-# Start Docker
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Add user to docker group
-sudo usermod -aG docker $USER
-```
-
 ### Install Docker Compose:
+docker-compose to run multiple container configurations, f.i manage startup dependencies and specify startup order
+
 ```bash
 # Download Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -90,7 +73,7 @@ docker-compose --version
 
 ```bash
 # Create project directory
-mkdir myproject && cd myproject
+mkdir demoDj && cd demoDj
 
 # Create virtual environment (optional, for development)
 python3 -m venv venv
@@ -103,7 +86,6 @@ pip3 install django djangorestframework psycopg2-binary gunicorn python-decouple
 # Create Django project
 django-admin startproject app .
 
-
 # Create an API app
 python manage.py startapp api
 
@@ -112,279 +94,15 @@ pip freeze > requirements.txt
 ```
 
 ## Step 3: Create requirements.txt
-
-```txt
-Django>=4.2,<5.0
-djangorestframework>=3.14.0
-psycopg2-binary>=2.9.9
-gunicorn>=21.2.0
-python-decouple>=3.8
-whitenoise>=6.6.0
-django-cors-headers>=4.3.0
-```
 ## Step 4: Create Dockerfile
-
-```dockerfile
-# Use official Python runtime as base image
-FROM python:3.11-slim
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# Set work directory
-WORKDIR /app
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    postgresql-client \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Python dependencies
-COPY requirements.txt /app/
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Copy project files
-COPY . /app/
-
-# Create static files directory
-RUN mkdir -p /app/staticfiles
-
-# Collect static files
-RUN python manage.py collectstatic --noinput || true
-
-# Expose port
-EXPOSE 8000
-
-# Run migrations and start server
-CMD ["sh", "-c", "python manage.py migrate && gunicorn app.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
-```
-
 ## Step 5: Create docker-compose.yml
-
-```yaml
-version: '3.8'
-
-services:
-  db:
-    image: postgres:15
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=djangodb
-      - POSTGRES_USER=djangouser
-      - POSTGRES_PASSWORD=djangopass
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U djangouser"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  web:
-    build: .
-    command: sh -c "python manage.py migrate && gunicorn app.wsgi:application --bind 0.0.0.0:8000 --workers 3"
-    volumes:
-      - .:/app
-      - static_volume:/app/staticfiles
-    ports:
-      - "8000:8000"
-    environment:
-      - DEBUG=False
-      - SECRET_KEY=your-secret-key-here-change-in-production
-      - DATABASE_URL=postgresql://djangouser:djangopass@db:5432/djangodb
-      - ALLOWED_HOSTS=localhost,127.0.0.1
-    depends_on:
-      db:
-        condition: service_healthy
-
-  nginx:
-    image: nginx:alpine
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - static_volume:/app/staticfiles
-    ports:
-      - "80:80"
-    depends_on:
-      - web
-
-volumes:
-  postgres_data:
-  static_volume:
-```
-
 ## Step 6: Create .dockerignore
-
-```
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-.git
-.gitignore
-.mypy_cache
-.pytest_cache
-.hypothesis
-*.db
-*.sqlite3
-db.sqlite3
-media/
-.env
-.venv
-*.swp
-*.swo
-*~
-.DS_Store
-node_modules/
-```
-
 ## Step 7: Create .env file
-
-```env
-DEBUG=True
-SECRET_KEY=your-secret-key-here-generate-a-new-one
-DATABASE_URL=postgresql://djangouser:djangopass@db:5432/djangodb
-ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
-POSTGRES_DB=djangodb
-POSTGRES_USER=djangouser
-POSTGRES_PASSWORD=djangopass
-```
+- AELZ_01: remove .env as potentially unsecure, use dynamical binding instead 
 
 ## Step 8: Update Django settings.py
 
-```python
-import os
-from pathlib import Path
-from decouple import config, Csv
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-changeme')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
-
-# Application definition
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
-    'api',  # Your API app
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files
-    'corsheaders.middleware.CorsMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-ROOT_URLCONF = 'app.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-WSGI_APPLICATION = 'app.wsgi.application'
-
-# Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', default='djangodb'),
-        'USER': config('POSTGRES_USER', default='djangouser'),
-        'PASSWORD': config('POSTGRES_PASSWORD', default='djangopass'),
-        'HOST': config('DB_HOST', default='db'),
-        'PORT': config('DB_PORT', default='5432'),
-    }
-}
-
-# Password validation
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-]
-
-# Internationalization
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# REST Framework settings
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
-}
-
-# CORS settings
-CORS_ALLOW_ALL_ORIGINS = DEBUG
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-```
+- AELZ_02: correct unnecesary settings later
 
 ## Step 9: Create nginx.conf (Optional, for production)
 
@@ -424,6 +142,10 @@ http {
 }
 ```
 
+- AELZ_03 for steps above see corresponding files in repo
+- AELZ_04 create dbuser in advance, f.i. in entrypoint.sh ? 
+- Add entrypoint.šh instead of cmd ? 
+
 ## Step 10: Build and Run
 
 ### Using Docker Compose (Recommended):
@@ -447,7 +169,6 @@ docker-compose down
 # Stop and remove volumes (WARNING: deletes database)
 docker-compose down -v
 ```
-
 
 ### Using Docker only:
 
@@ -523,6 +244,12 @@ curl http://localhost:8000/api/
 # Access Django admin
 # Navigate to: http://localhost:8000/admin/
 
+- **Main App**: http://localhost:8000
+- **Admin Panel**: http://localhost:8000/admin/
+- **API Root**: http://localhost:8000/api/
+- **API Docs (Swagger)**: http://localhost:8000/api/docs/
+- **API Docs (ReDoc)**: http://localhost:8000/api/redoc/
+
 # Run tests
 docker-compose exec web python manage.py test
 ```
@@ -593,15 +320,44 @@ ports:
    - Load balancing
    - Horizontal scaling
 
-## Next Steps
+6. ** Running server **
+## manage.py == django-admin (cli)
+python3 manage.py runserver
 
-1. Add CI/CD pipeline (GitHub Actions, GitLab CI)
-2. Implement Redis for caching and Celery for async tasks
-3. Set up proper logging and monitoring
-4. Configure automated backups
-5. Implement proper security measures
-6. Add API documentation (Swagger/ReDoc)
-7. Set up staging and production environments
+Geting objects from model
+--------------------------
+Notification.objects.all()
+Notification.objects.all().values()
+Notification.objects.all().count()
+Notification.objects.filter(
+                    origin=alarm_1['origin'],
+                    notification_id = alarm_1['notification_id'],
+                    time_cleared = alarm_1['time_cleared']).count()
+
+- serialize    - >  to network
+- desereialize  ->  from network to model
+
+- boilerplate html  Set of predefined html templates for Djnago web development.
+- http://www.initializr.com/  basic html  boilerplates
+
+
+Django templates
+----------------
+https://djangocentral.com/static-assets-in-django/
+
+
+Django CLI
+----------
+
+python3 manage.py shell
+from notification_inventory.models import Notification
+qs=Notification.objects.all()
+qs.get().additional_text
+qs.get().notification_id
+qs.values()
+
+
+## Next Steps
 
 Your Django REST Framework application is now fully Dockerized and ready for development and deployment!
 ```
