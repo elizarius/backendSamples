@@ -1,5 +1,5 @@
 
-# NOTE ****** break, continue, else  used to control flow: if statement and loos
+# NOTE ****** break, continue, else  used to control flow: if statement and loops
 
 print('\n 1***  While loop example')
 counter=4
