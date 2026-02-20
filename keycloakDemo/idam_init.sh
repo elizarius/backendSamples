@@ -2,6 +2,13 @@
 #set -e
 set -u
 
+
+# Start keycloak in docker 
+# https://www.keycloak.org/getting-started/getting-started-docker
+# Connect when user and realm created:
+# http://localhost:8080/auth/realms/<REALMNAME>/account/applications
+# http://localhost:8080/auth/realms/testRealm/account/applications
+
 curl="curl -v"
 
 KEYCLOAK_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' recursing_williamson)
@@ -62,7 +69,7 @@ ${curl} "${KEYCLOAK_ADDR}/admin/realms/${MASREALM}/users" \
     -H "Authorization: Bearer ${ADMIN_TOKEN}" | jq .
 
 # Next steps to create:
-# - realm (teneant) for application specificv users
+# - realm (tenant) for application specificv users
 # - user roles and permissions
 # - users
 # - ....

@@ -1,25 +1,26 @@
-# Keycloak demo example
+# Django demo example
 
 ## Overview
 
-This project demonstrates Keycloak integration with Docker, Python, PostgreSQL, and Django REST Framework. It explores using VSCode AI agents for development and refactoring.
+This project demonstrates Django REST Framework setup with Docker, Python, PostgreSQL. It explores
+using VSCode AI agents for development and refactoring.
 
 ## How to run
-- TBD
+- See django-docker-guide.md 
 
 ## Project Status
 
 ### Completed
 - Setup keycloak in docker
 - Create first users / clients with Admin CLI REST API
+- Write Django REST sceleton, using REST API, as container
+- Setup PostgreSQL as separate container
+- Create DB user for web-1 demo
 
 
 ### In Progress
-- Write Python library to use ADMIN API
-
-- Write Django REST sceleton, using REST API, as container
-- Setup PostgreSQL as separate container
-- Integrate PostgreSQL database with Django ?
+- Write Python library to use  keycloak ADMIN API
+- Add postgres custom setup, f.i own postgres.conf 
 - Integrate  Django REST container to use with Keycloak
 - Add robot tests to demonstrate functionality
 - Add pytests to demonstrate functionality
@@ -27,7 +28,6 @@ This project demonstrates Keycloak integration with Docker, Python, PostgreSQL, 
 
 ### Planned
 - Focus on VSCode AI agents usage and refactoring
-- AWS: setup users with different permissions
 - k3s: setup in aelz environment
 - k3s: deployment, service configuration
 - Add auth policy .f.i RBAC, see Ch 1  of "authorization services"

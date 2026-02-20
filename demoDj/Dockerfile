@@ -16,7 +16,15 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 COPY requirements.txt /app/
-RUN  pip3 install --no-cache-dir -r requirements.txt
+
+# AELZ_03: upgrade pip3, may cause issues with some packages,
+# so commented out for now, pip3 already available under 
+# RUN pip3 install --upgrade pip3 && \
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Copy and set permissions for entrypoint script
+COPY entrypoint.sh /app/
+RUN chmod +x /app/entrypoint.sh
 
 # Copy project files
 COPY . /app/
@@ -31,5 +39,5 @@ RUN python manage.py collectstatic --noinput || true
 EXPOSE 8000
 
 # Run migrations and start server
-CMD ["sh", "-c", "python manage.py migrate && gunicorn app.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
-
+# CMD ["sh", "-c", "python manage.py migrate && gunicorn app.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
+ENTRYPOINT ["./entrypoint.sh"]

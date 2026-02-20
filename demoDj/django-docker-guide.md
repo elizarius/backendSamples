@@ -143,7 +143,7 @@ http {
 ```
 
 - AELZ_03 for steps above see corresponding files in repo
-- AELZ_04 create dbuser in advance, f.i. in entrypoint.sh ? 
+- AELZ_04 create dbuser in advance, f.i. in entrypoint.sh or as python script from host, if simpler ?
 - Add entrypoint.šh instead of cmd ? 
 
 ## Step 10: Build and Run
@@ -241,6 +241,10 @@ docker-compose ps
 # Test the API
 curl http://localhost:8000/api/
 
+curl -X POST http://localhost:8000/api/ \
+  -H "Content-Type: application/json" \
+  -d '{"key": "value"}'
+
 # Access Django admin
 # Navigate to: http://localhost:8000/admin/
 
@@ -278,6 +282,8 @@ docker-compose exec db pg_isready -U djangouser
 
 # Check environment variables
 docker-compose exec web env | grep DATABASE
+
+psql  -U djangouser djangodb
 ```
 
 ### Port already in use:

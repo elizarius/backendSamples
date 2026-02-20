@@ -3,7 +3,6 @@
 
 0.  Postgresql documentation:
 
-    https://www.postgresql.org/docs/9.4/static/app-postgres.html
     https://www.postgresql.org/
 
 1.  Wildfly docker integrated with Postgresql server:
@@ -41,6 +40,7 @@ psql -h localhost -p 5432 -U postgres -W
 OR
 
 psql  -U postgres
+psql  -U djangouser djangodb
 
 OR
 
@@ -256,9 +256,5 @@ ORDER   BY (case when table_name = 'all' then 0 else 1 end), from_disk desc;
 #  Vertical print in psql: \x\g\x instead of;
 
  select * from pg_stat_replication\x\g\x
- 
- 
- 
-
 
 
