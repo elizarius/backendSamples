@@ -153,6 +153,7 @@ http {
 ```bash
 # Build the images
 docker-compose build
+docker-compose build  --no-cache
 
 # Start the services
 docker-compose up -d
@@ -202,34 +203,28 @@ docker logs -f django-app
 ```bash
 # View running containers
 docker ps
-
 # View all containers
 docker ps -a
 
-# Stop a container
 docker stop <container_id>
-
-# Remove a container
 docker rm <container_id>
 
 # View images
 docker images
-
-# Remove an image
 docker rmi <image_id>
 
 # Execute command in running container
 docker exec -it <container_id> bash
-
 # View container logs
 docker logs <container_id>
 
-# With docker-compose:
+# With docker-compose, make dynami changes without full rebuild
 docker-compose ps
 docker-compose logs -f web
 docker-compose exec web python manage.py shell
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
+docker-compose restart web
 ```
 
 ## Step 12: Testing the Application
@@ -239,11 +234,11 @@ docker-compose exec web python manage.py migrate
 docker-compose ps
 
 # Test the API
-curl http://localhost:8000/api/
+curl http://localhost:8000/api/items/
 
-curl -X POST http://localhost:8000/api/ \
-  -H "Content-Type: application/json" \
-  -d '{"key": "value"}'
+curl -X POST http://localhost:8000/api/items/ -H "Content-Type: application/json" \
+-d '{"title": "Test Item", "description": "Testing fix"}'
+
 
 # Access Django admin
 # Navigate to: http://localhost:8000/admin/

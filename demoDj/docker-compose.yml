@@ -30,6 +30,11 @@ services:
       - SECRET_KEY=your-secret-key-here-change-in-production
       - DATABASE_URL=postgresql://djangouser:djangopass@db:5432/djangodb
       - ALLOWED_HOSTS=localhost,127.0.0.1
+      # Optional: Create a superuser for Django admin
+      # SU can be created weather in entrypont.sh or with docker-compose command
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_EMAIL=bubu@gmail.com.com
+      - DJANGO_SUPERUSER_PASSWORD=admin123
     depends_on:
       db:
         condition: service_healthy
@@ -37,4 +42,3 @@ services:
 volumes:
   postgres_data:
   static_volume:
-

@@ -28,7 +28,12 @@ class ItemViewSet(viewsets.ModelViewSet):
     ordering = ['-created_at']
     
     def perform_create(self, serializer):
-        serializer.save(created_by=self.request.user)
+        # Only set created_by if user is authenticated
+        if self.request.user.is_authenticated:
+            serializer.save(created_by=self.request.user)
+        else:
+            # TBD AELZ: For demo purposes, creation only authorized user tbd later
+            serializer.save()  # Save without created_by
     
     @action(detail=False, methods=['get'])
     def my_items(self, request):
