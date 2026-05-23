@@ -33,13 +33,21 @@ class ItemViewSet(viewsets.ModelViewSet):
             serializer.save(created_by=self.request.user)
         else:
             # TBD AELZ: For demo purposes, creation only authorized user tbd later
+            print("AELZ_501 create an item with ****")
             serializer.save()  # Save without created_by
-    
+
+    def list(self, request, *args, **kwargs):
+        print(f"AELZ_504  Query params: {request.data}")
+        resp = super().list(request, *args, **kwargs)        
+        print(f"AELZ_505  Response data: {resp.data}")
+        return  resp
+
     @action(detail=False, methods=['get'])
     def my_items(self, request):
-        """Get items created by the current user"""
-        items = self.queryset.filter(created_by=request.user)
+        """Get items created by the current user: tb when user authenticaiton and authorization is implemented"""
+        items = self.queryset
         serializer = self.get_serializer(items, many=True)
+        print(f"AELZ_504  Query params: {request.data}")
         return Response(serializer.data)
     
     @action(detail=True, methods=['post'])
@@ -49,4 +57,5 @@ class ItemViewSet(viewsets.ModelViewSet):
         item.is_active = not item.is_active
         item.save()
         serializer = self.get_serializer(item)
+        print("AELZ_503 toggle active ****")
         return Response(serializer.data)

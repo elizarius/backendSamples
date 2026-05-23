@@ -163,6 +163,8 @@ docker-compose logs -f
 
 # Create superuser
 docker-compose exec web python manage.py createsuperuser
+- **Admin Panel**: http://localhost:8000/admin/
+
 
 # Stop services
 docker-compose down
@@ -170,6 +172,27 @@ docker-compose down
 # Stop and remove volumes (WARNING: deletes database)
 docker-compose down -v
 ```
+
+# With docker-compose, make dynamic changes without full rebuild
+docker-compose ps
+docker-compose logs -f web
+
+docker-compose exec web python manage.py shell
+## psql interface !!!
+docker-compose exec web python3 manage.py dbshell  
+
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+docker-compose restart web
+```
+
+## Same only with docker 
+docker exec -it demodj-web-1 /bin/sh
+cd /app
+python3 manage.py
+python3 manage.py shell
+python3 manage.py dbshell
+
 
 ### Using Docker only:
 
@@ -218,14 +241,6 @@ docker exec -it <container_id> bash
 # View container logs
 docker logs <container_id>
 
-# With docker-compose, make dynami changes without full rebuild
-docker-compose ps
-docker-compose logs -f web
-docker-compose exec web python manage.py shell
-docker-compose exec web python manage.py makemigrations
-docker-compose exec web python manage.py migrate
-docker-compose restart web
-```
 
 ## Step 12: Testing the Application
 
@@ -241,7 +256,7 @@ curl -X POST http://localhost:8000/api/items/ -H "Content-Type: application/json
 
 
 # Access Django admin
-# Navigate to: http://localhost:8000/admin/
+Navigate to: http://localhost:8000/admin/
 
 - **Main App**: http://localhost:8000
 - **Admin Panel**: http://localhost:8000/admin/
@@ -317,7 +332,7 @@ ports:
    - Configure health checks
 
 5. **Scaling:**
-   - Use container orchestration (Kubernetes, Docker Swarm)
+   - Use container orchestration (Kubernetes)
    - Load balancing
    - Horizontal scaling
 
@@ -356,9 +371,3 @@ qs=Notification.objects.all()
 qs.get().additional_text
 qs.get().notification_id
 qs.values()
-
-
-## Next Steps
-
-Your Django REST Framework application is now fully Dockerized and ready for development and deployment!
-```

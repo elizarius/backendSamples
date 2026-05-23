@@ -42,8 +42,6 @@ def quick_sort(array, low, high):
 		# Recursive call on the right of pivot
 		quick_sort(array, pi + 1, high)
 
-	
-		
 # Driver code
 array = [ 10, 7, 8, 9, 1, 5]
 quick_sort(array, 0, len(array) - 1)

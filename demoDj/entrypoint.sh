@@ -4,7 +4,7 @@
 
 set -ex
 
-echo "Starting Django application..."
+echo "AELZ_01: Starting Django application..."
 pwd
 
 python3 manage.py migrate --noinput
@@ -12,4 +12,4 @@ python3 manage.py migrate --noinput
 echo "Starting Gunicorn server..."
 exec gunicorn app.wsgi:application --bind 0.0.0.0:8000 --workers 3
 
-echo "AELZ Django demo entrypoint completed"
+echo "AELZ_02 Django demo entrypoint completed"
